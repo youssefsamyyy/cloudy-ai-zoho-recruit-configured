@@ -1,500 +1,3973 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cloud 11 — Cloudy AI Career Navigator</title><style>
-*{box-sizing:border-box}body{margin:0;background:#f7f9fc;color:#17263d;font-family:Inter,Arial,sans-serif}button,input,select{font:inherit}.hidden{display:none!important}.top{height:70px;background:#fff;border-bottom:1px solid #e5eaf1;padding:0 6%;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:10px;align-items:center}.logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#1457d9,#78a4ff);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:800}.brand b,.brand small{display:block}.brand b{font-size:13px}.brand small{font-size:9px;color:#8a96a8;margin-top:3px}.online{font-size:10px;color:#69778c}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2cc38d;margin-right:6px}.top button{margin-left:12px;border:1px solid #dce3ee;background:#fff;border-radius:9px;padding:8px 11px;font-size:10px;font-weight:700;color:#31537d}.hero{max-width:1200px;margin:auto;padding:70px 6%;display:grid;grid-template-columns:1fr 1fr;align-items:center}.eyebrow{font-size:10px;letter-spacing:1.6px;color:#2868e8;font-weight:800}.hero h1{font-size:52px;line-height:1.05;letter-spacing:-2px;margin:16px 0}.hero h1 span{color:#2868e8}.hero p{color:#718096;line-height:1.7;max-width:600px;font-size:14px}.stats{display:flex;gap:30px;margin-top:30px}.stats b,.stats span{display:block}.stats b{font-size:18px}.stats span{font-size:9px;color:#8995a7;margin-top:4px}.visual{height:290px;display:grid;place-items:center;position:relative}.orb{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#dceaff,#edf4ff 50%,transparent 70%)}.cloud-card{z-index:2;width:180px;height:180px;border-radius:40px;background:linear-gradient(145deg,#0e51cc,#76a2ff);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 30px 70px #1763ea45}.cloud-card strong{font-size:25px;margin-top:7px}.cloud-card small{font-size:8px;color:#dbe7ff;margin-top:5px}.float{position:absolute;background:#fff;border:1px solid #e0e6ef;border-radius:11px;padding:10px;font-size:9px;font-weight:700;box-shadow:0 12px 30px #20345714}.f1{left:2%;top:35px}.f2{right:0;bottom:30px}.jobs{max-width:1200px;margin:auto;padding:10px 6% 140px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.head h2{margin:8px 0;font-size:28px}.head input{border:1px solid #dfe5ee;border-radius:9px;padding:10px;width:210px;outline:0;font-size:10px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.job{background:#fff;border:1px solid #e4e9f1;border-radius:16px;padding:20px}.jobicon{width:42px;height:42px;border-radius:11px;background:#edf4ff;color:#2868e8;display:grid;place-items:center;font-weight:800}.job h3{font-size:15px;margin:16px 0 7px}.job p{font-size:10px;color:#7b8798;line-height:1.6;min-height:35px}.meta{display:flex;gap:8px;flex-wrap:wrap;color:#748197;font-size:8px;margin:14px 0}.apply{width:100%;border:0;border-radius:9px;background:#1763ea;color:#fff;padding:10px;font-size:10px;font-weight:700;cursor:pointer}
-.launch{position:fixed;right:28px;bottom:24px;z-index:30;display:flex;gap:10px;align-items:center}.speech{background:#fff;border:1px solid #dfe5ee;border-radius:14px;padding:9px 12px;font-size:9px;box-shadow:0 12px 30px #10294b18}.speech b{display:block;color:#17263d;margin-top:2px}.circle{width:66px;height:66px;border-radius:50%;border:0;background:linear-gradient(145deg,#0d4fc9,#4380f2);color:#fff;box-shadow:0 15px 40px #1763ea55;font-size:27px;cursor:pointer;position:relative}.circle i{position:absolute;right:4px;top:4px;width:12px;height:12px;background:#36d29b;border:3px solid #fff;border-radius:50%}
-.chat{position:fixed;right:28px;bottom:100px;width:400px;height:680px;background:#fff;border:1px solid #dfe5ed;border-radius:21px;overflow:hidden;z-index:50;box-shadow:0 30px 90px #10294b35;display:flex;flex-direction:column}.chathead{background:linear-gradient(135deg,#102a51,#1e61df);color:#fff;padding:16px;display:flex;gap:10px;align-items:center}.cloudy{width:40px;height:40px;border-radius:12px;background:#ffffff18;display:grid;place-items:center;font-size:20px;position:relative}.cloudy i{position:absolute;right:-2px;bottom:-2px;width:9px;height:9px;background:#50dfae;border:2px solid #173a72;border-radius:50%}.chathead b{display:block;font-size:12px}.chathead small{font-size:8px;color:#cadbff}.chathead em{color:#63e0ae;font-style:normal}.close{margin-left:auto;background:#ffffff15;color:#fff;border:0;border-radius:8px;font-size:20px;width:30px;height:30px}.progress{padding:10px 14px;border-bottom:1px solid #edf0f4}.plabel{display:flex;justify-content:space-between;font-size:8px;color:#8793a6;margin-bottom:6px}.track{height:4px;background:#edf1f6;border-radius:10px}.bar{height:100%;background:#1763ea;width:0%;border-radius:10px;transition:.3s}.msgs{flex:1;overflow:auto;background:#f7f9fc;padding:14px}.msg{margin:9px 0;display:flex}.msg.user{justify-content:flex-end}.bubble{max-width:87%;padding:10px 12px;border-radius:14px;font-size:10px;line-height:1.6}.bot .bubble{background:#fff;border:1px solid #e2e7ee;border-bottom-left-radius:4px}.user .bubble{background:#1763ea;color:#fff;border-bottom-right-radius:4px}.choices{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 8px;background:#f7f9fc}.choice{border:1px solid #cbd9f2;background:#fff;color:#2868e8;border-radius:9px;padding:7px 9px;font-size:9px;font-weight:700}.composer{display:flex;gap:7px;padding:10px;border-top:1px solid #e9edf2}.composer input{flex:1;border:1px solid #dfe5ee;border-radius:9px;padding:10px;font-size:10px;outline:0}.composer button{width:40px;border:0;border-radius:9px;background:#1763ea;color:#fff}.upload{padding:8px 14px;background:#f7f9fc}.upload label{display:block;border:1px dashed #9ebbe8;border-radius:9px;background:#fff;color:#2868e8;padding:9px;text-align:center;font-size:9px;font-weight:700;cursor:pointer}.upload input{display:none}.note{text-align:center;color:#9da7b6;font-size:7px;padding-bottom:8px}.typing{font-size:8px;color:#8995a7;padding:0 14px 7px}.typing span{display:inline-block;width:4px;height:4px;background:#8491a3;border-radius:50%;margin:0 2px}.locform{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 14px 8px;background:#f7f9fc}.locform select,.locform input{border:1px solid #cbd9f2;border-radius:8px;padding:8px;font-size:8px;outline:0}.locform button{grid-column:1/-1}.locform .custom-loc{grid-column:1/-1;display:none}.salaryform{display:grid;grid-template-columns:1fr 120px;gap:6px;padding:0 14px 8px;background:#f7f9fc}.salaryform input,.salaryform select{border:1px solid #cbd9f2;border-radius:8px;padding:9px;font-size:9px;outline:0;background:#fff}.salaryform input:focus,.salaryform select:focus,.locform input:focus,.locform select:focus{border-color:#1769e8}.salaryform button{grid-column:1/-1}.salaryhint{grid-column:1/-1;font-size:7px;color:#8995a7;margin-top:1px}.short{background:#1763ea;color:#fff}.reject{background:#fff;border:1px solid #dfe5ee!important;color:#718096}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#122a50;color:#fff;padding:9px 13px;border-radius:8px;font-size:9px;opacity:0;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.visual{display:none}.grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.hrgrid{grid-template-columns:1fr}}@media(max-width:600px){.speech{display:none}.launch{right:16px}.circle{width:60px;height:60px}.chat{right:10px;bottom:10px;width:calc(100vw - 20px);height:calc(100vh - 90px)}.grid{grid-template-columns:1fr}.hero h1{font-size:40px}}
-.cvdrop{border:1.5px dashed #b7c9e8;background:linear-gradient(180deg,#fff,#f7fbff);border-radius:14px;padding:15px 12px;text-align:center;transition:.2s}.cvdrop.drag{border-color:#1763ea;background:#edf5ff}.cvicon{width:40px;height:40px;margin:0 auto 8px;border-radius:11px;background:#eaf2ff;display:grid;place-items:center;font-size:19px}.cvdrop b{display:block;font-size:11px;color:#253754}.cvdrop small{display:block;font-size:8px;color:#7f8ca0;margin-top:4px}.cvdrop em{display:block;font-style:normal;font-size:7px;color:#a0aaba;margin:6px 0 10px}.cvdrop label{display:inline-block;background:#1763ea;color:#fff;border-radius:8px;padding:8px 13px;font-size:9px;font-weight:700;cursor:pointer}.cvdrop input{display:none}.cvcard{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #dfe7f2;border-radius:12px;padding:10px}.cvfileicon{width:36px;height:36px;border-radius:9px;background:#edf4ff;display:grid;place-items:center;font-size:17px}.cvinfo{flex:1;min-width:0;text-align:left}.cvinfo>b{display:block;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cvinfo>small{display:block;font-size:7px;color:#919dae;margin-top:2px}.cvprog{height:4px;background:#edf1f6;border-radius:5px;overflow:hidden;margin-top:6px}.cvprog i{display:block;width:0;height:100%;background:#1763ea;border-radius:5px;transition:.15s}.cvinfo span{display:block;font-size:7px;color:#3b9b76;font-weight:700;margin-top:4px}.cvcard button{width:25px;height:25px;border:0;border-radius:7px;background:#f1f3f6;color:#6f7c8f;font-size:17px;cursor:pointer}</style><style>
-:root{--c11-blue:#1769e8;--c11-dark:#071b3a;--c11-line:#e5ebf3}
-body{background:#fff;color:#17304f}.top{background:#fff!important;border-bottom:1px solid var(--c11-line)!important;box-shadow:0 3px 18px rgba(7,27,58,.04)}
-.brand .logo{background:linear-gradient(135deg,#0a56c8,#2f83f5)!important;border-radius:4px!important}
-.hero h1{color:var(--c11-dark)!important;font-weight:800!important}.hero h1 span,.eyebrow{color:var(--c11-blue)!important}
-.jobs{background:#f7f9fc!important;max-width:none!important;padding-left:max(6%,calc((100% - 1240px)/2))!important;padding-right:max(6%,calc((100% - 1240px)/2))!important;padding-top:65px!important}
-.jobs .head,.grid{max-width:1240px;margin-left:auto;margin-right:auto}.job-card{border:1px solid #e1e8f1!important;border-radius:8px!important;box-shadow:0 8px 28px rgba(8,31,65,.055)!important}
-.job-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(8,31,65,.1)!important;border-color:#bfd3ef!important}
-.job-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.dept-badge{padding:5px 8px;border-radius:20px;background:#eaf3ff;color:#1769e8;font-size:8px;font-weight:800}
-.job-icon{background:#edf5ff!important;color:#1769e8!important;border-radius:7px!important}.apply-button{background:#1769e8!important;border-radius:5px!important}
-.chat{width:420px!important;height:700px!important;border-radius:8px!important;box-shadow:0 28px 80px rgba(5,25,55,.25)!important}
-.chathead{background:linear-gradient(135deg,#092d65,#1769e8)!important;cursor:grab!important;user-select:none}.chathead:active{cursor:grabbing!important}
-.chat.dragging{opacity:.98;box-shadow:0 35px 90px rgba(5,25,55,.34)!important}
-.close{width:32px!important;height:32px!important;border-radius:5px!important;background:rgba(255,255,255,.13)!important;cursor:pointer!important}.close:hover{background:rgba(255,255,255,.23)!important}
-.circle{background:linear-gradient(145deg,#092d65,#1769e8)!important}.progress .bar,.composer button{background:#1769e8!important}
-@media(max-width:700px){.chat{width:calc(100vw - 20px)!important;height:min(600px,calc(100vh - 85px))!important}}
-</style>
-<style>
-/* Cloudy floating icon: draggable */
-.launch{
-  position:fixed!important;
-  right:28px!important;
-  bottom:24px!important;
-  z-index:1000!important;
-  display:flex!important;
-  align-items:center!important;
-  gap:10px!important;
-  cursor:grab!important;
-  touch-action:none!important;
-}
-.launch.dragging{cursor:grabbing!important}
-.circle{
-  width:58px!important;
-  height:58px!important;
-  min-width:58px!important;
-  box-shadow:0 12px 30px rgba(23,105,232,.34)!important;
-  cursor:grab!important;
-  user-select:none!important;
-  touch-action:none!important;
-}
-.circle:active{cursor:grabbing!important}
-.speech{
-  font-size:9px!important;
-  padding:8px 11px!important;
-}
-.chat{
-  width:380px!important;
-  height:600px!important;
-  max-height:calc(100vh - 30px)!important;
-  right:25px!important;
-  bottom:25px!important;
-}
-.chathead{
-  min-height:62px!important;
-  padding:11px 13px!important;
-  position:relative!important;
-}
-.chathead .close{
-  display:grid!important;
-  place-items:center!important;
-  width:28px!important;
-  height:28px!important;
-  flex:none!important;
-  line-height:1!important;
-  color:#fff!important;
-  border:1px solid rgba(255,255,255,.25)!important;
-  position:relative!important;
-  z-index:5!important;
-}
-.chathead .cloudy{width:34px!important;height:34px!important}
-.chathead b{font-size:11px!important}
-.chathead small{font-size:7px!important}
-@media(max-width:700px){
- .launch{right:15px!important;bottom:15px!important}
- .speech{display:none!important}
- .chat{
-   width:calc(100vw - 20px)!important;
-   height:min(600px,calc(100vh - 30px))!important;
-   right:10px!important;
-   bottom:10px!important;
- }
-}
-</style>
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Cloudy AI — Cloud 11 Careers</title>
 
-<style>
-#upload{padding:10px 14px 12px;background:#f7f9fc;border-top:1px solid #edf0f4}
-#cvDrop{display:block!important}
-#cvDrop label{display:inline-flex!important;align-items:center;justify-content:center;gap:6px;min-width:145px;padding:10px 16px!important;font-size:10px!important;box-shadow:0 5px 14px rgba(23,99,234,.18)}
-#cvDrop label::before{content:'📎';font-size:11px}
-#cvDrop input[type=file]{display:none!important}
-</style>
+  <style>
+    :root {
+      --c11-blue: #1769e8;
+      --c11-blue-dark: #092d65;
+      --c11-dark: #071b3a;
+      --c11-green: #50dfae;
+      --c11-line: #e5ebf3;
+      --c11-bg: #f7f9fc;
+      --c11-text: #17304f;
+      --c11-muted: #8793a6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: transparent !important;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--c11-text);
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================================================
+       FLOATING CLOUDY BUTTON
+       ========================================================= */
+
+    .launch {
+      position: fixed;
+      right: 28px;
+      bottom: 24px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      touch-action: none;
+      user-select: none;
+    }
+
+    .speech {
+      background: #fff;
+      border: 1px solid #dfe5ee;
+      border-radius: 14px;
+      padding: 9px 12px;
+
+      font-size: 9px;
+      color: #718096;
+
+      box-shadow: 0 12px 30px rgba(16, 41, 75, .10);
+      white-space: nowrap;
+    }
+
+    .speech b {
+      display: block;
+      margin-top: 2px;
+      color: var(--c11-text);
+    }
+
+    .circle {
+      width: 62px;
+      height: 62px;
+      min-width: 62px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: linear-gradient(
+        145deg,
+        var(--c11-blue-dark),
+        var(--c11-blue)
+      );
+
+      color: #fff;
+
+      font-size: 27px;
+
+      box-shadow:
+        0 15px 40px rgba(23, 99, 234, .35);
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .circle:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 18px 45px rgba(23, 99, 234, .42);
+    }
+
+    .circle:active {
+      transform: scale(.96);
+    }
+
+    .circle i {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+
+      width: 12px;
+      height: 12px;
+
+      background: var(--c11-green);
+
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+
+    /* =========================================================
+       CHAT WINDOW
+       ========================================================= */
+
+    .chat {
+      position: fixed;
+
+      right: 28px;
+      bottom: 100px;
+
+      width: 390px;
+      height: 620px;
+
+      max-height: calc(100vh - 30px);
+
+      background: #fff;
+
+      border: 1px solid var(--c11-line);
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      z-index: 1100;
+
+      box-shadow:
+        0 30px 90px rgba(16, 41, 75, .25);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================================================
+       CHAT HEADER
+       ========================================================= */
+
+    .chathead {
+      min-height: 66px;
+
+      padding: 12px 14px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--c11-blue-dark),
+          var(--c11-blue)
+        );
+
+      user-select: none;
+    }
+
+    .cloudy {
+      width: 38px;
+      height: 38px;
+
+      flex:none;
+
+      border-radius: 11px;
+
+      background: rgba(255,255,255,.14);
+
+      display: grid;
+      place-items: center;
+
+      font-size: 19px;
+
+      position: relative;
+    }
+
+    .cloudy i {
+      position: absolute;
+
+      right: -2px;
+      bottom: -2px;
+
+      width: 9px;
+      height: 9px;
+
+      background: var(--c11-green);
+
+      border: 2px solid #173a72;
+
+      border-radius: 50%;
+    }
+
+    .chathead-info {
+      min-width: 0;
+    }
+
+    .chathead b {
+      display: block;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .chathead small {
+      display: block;
+
+      margin-top: 2px;
+
+      font-size: 8px;
+      color: #cadbff;
+    }
+
+    .chathead em {
+      color: #63e0ae;
+      font-style: normal;
+    }
+
+    .close {
+      margin-left: auto;
+
+      width: 30px;
+      height: 30px;
+
+      flex:none;
+
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 7px;
+
+      background: rgba(255,255,255,.12);
+
+      color: #fff;
+
+      font-size: 20px;
+      line-height: 1;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .close:hover {
+      background: rgba(255,255,255,.22);
+    }
+
+    /* =========================================================
+       PROGRESS
+       ========================================================= */
+
+    .progress {
+      padding: 10px 14px;
+
+      border-bottom: 1px solid #edf0f4;
+
+      background: #fff;
+    }
+
+    .plabel {
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 8px;
+      color: var(--c11-muted);
+
+      margin-bottom: 6px;
+    }
+
+    .track {
+      height: 4px;
+
+      background: #edf1f6;
+
+      border-radius: 10px;
+
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+
+      background: var(--c11-blue);
+
+      border-radius: 10px;
+
+      transition: width .3s ease;
+    }
+
+    /* =========================================================
+       MESSAGES
+       ========================================================= */
+
+    .msgs {
+      flex: 1;
+
+      overflow-y: auto;
+
+      background: var(--c11-bg);
+
+      padding: 14px;
+    }
+
+    .msgs::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .msgs::-webkit-scrollbar-thumb {
+      background: #ccd5e2;
+      border-radius: 10px;
+    }
+
+    .msg {
+      margin: 9px 0;
+
+      display: flex;
+    }
+
+    .msg.user {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      max-width: 87%;
+
+      padding: 10px 12px;
+
+      border-radius: 14px;
+
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .bot .bubble {
+      background: #fff;
+
+      border: 1px solid #e2e7ee;
+
+      border-bottom-left-radius: 4px;
+    }
+
+    .user .bubble {
+      background: var(--c11-blue);
+
+      color: #fff;
+
+      border-bottom-right-radius: 4px;
+    }
+
+    /* =========================================================
+       CHOICES
+       ========================================================= */
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      padding: 0 14px 8px;
+
+      background: var(--c11-bg);
+    }
+
+    .choice {
+      border: 1px solid #cbd9f2;
+
+      background: #fff;
+
+      color: var(--c11-blue);
+
+      border-radius: 9px;
+
+      padding: 7px 9px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      transition: .15s ease;
+    }
+
+    .choice:hover {
+      background: #edf5ff;
+      border-color: #a9c4ed;
+    }
+
+    .choice.short {
+      background: var(--c11-blue);
+      color: #fff;
+    }
+
+    .choice.reject {
+      background: #fff;
+      border-color: #dfe5ee;
+      color: #718096;
+    }
+
+    /* =========================================================
+       LOCATION FORM
+       ========================================================= */
+
+    .locform {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 6px;
+
+      padding: 0 14px 8px;
+
+      background: var(--c11-bg);
+    }
+
+    .locform select,
+    .locform input {
+      width: 100%;
+
+      border: 1px solid #cbd9f2;
+
+      border-radius: 8px;
+
+      padding: 8px;
+
+      font-size: 8px;
+
+      outline: none;
+
+      background: #fff;
+    }
+
+    .locform select:focus,
+    .locform input:focus {
+      border-color: var(--c11-blue);
+    }
+
+    .locform button {
+      grid-column: 1 / -1;
+    }
+
+    .locform .custom-loc {
+      grid-column: 1 / -1;
+      display: none;
+    }
+
+    /* =========================================================
+       SALARY FORM
+       ========================================================= */
+
+    .salaryform {
+      display: grid;
+
+      grid-template-columns: 1fr 120px;
+
+      gap: 6px;
+
+      padding: 0 14px 8px;
+
+      background: var(--c11-bg);
+    }
+
+    .salaryform input,
+    .salaryform select {
+      width: 100%;
+
+      border: 1px solid #cbd9f2;
+
+      border-radius: 8px;
+
+      padding: 9px;
+
+      font-size: 9px;
+
+      outline: none;
+
+      background: #fff;
+    }
+
+    .salaryform input:focus,
+    .salaryform select:focus {
+      border-color: var(--c11-blue);
+    }
+
+    .salaryform button {
+      grid-column: 1 / -1;
+    }
+
+    .salaryhint {
+      grid-column: 1 / -1;
+
+      font-size: 7px;
+
+      color: var(--c11-muted);
+
+      margin-top: 1px;
+    }
+
+    /* =========================================================
+       CV UPLOAD
+       ========================================================= */
+
+    .upload {
+      padding: 8px 14px 10px;
+
+      background: var(--c11-bg);
+
+      border-top: 1px solid #edf0f4;
+    }
+
+    .cvdrop {
+      border: 1.5px dashed #b7c9e8;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff,
+          #f7fbff
+        );
+
+      border-radius: 14px;
+
+      padding: 15px 12px;
+
+      text-align: center;
+
+      transition: .2s ease;
+    }
+
+    .cvdrop.drag {
+      border-color: var(--c11-blue);
+      background: #edf5ff;
+    }
+
+    .cvicon {
+      width: 40px;
+      height: 40px;
+
+      margin: 0 auto 8px;
+
+      border-radius: 11px;
+
+      background: #eaf2ff;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 19px;
+    }
+
+    .cvdrop b {
+      display: block;
+
+      font-size: 11px;
+
+      color: #253754;
+    }
+
+    .cvdrop small {
+      display: block;
+
+      font-size: 8px;
+
+      color: #7f8ca0;
+
+      margin-top: 4px;
+    }
+
+    .cvdrop em {
+      display: block;
+
+      font-style: normal;
+
+      font-size: 7px;
+
+      color: #a0aaba;
+
+      margin: 6px 0 10px;
+    }
+
+    .cvdrop label {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 6px;
+
+      min-width: 145px;
+
+      padding: 9px 14px;
+
+      background: var(--c11-blue);
+
+      color: #fff;
+
+      border-radius: 8px;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 5px 14px rgba(23,99,234,.18);
+    }
+
+    .cvdrop label::before {
+      content: '📎';
+      font-size: 11px;
+    }
+
+    .cvdrop input {
+      display: none;
+    }
+
+    .cvcard {
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      background: #fff;
+
+      border: 1px solid #dfe7f2;
+
+      border-radius: 12px;
+
+      padding: 10px;
+    }
+
+    .cvfileicon {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 9px;
+
+      background: #edf4ff;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 17px;
+    }
+
+    .cvinfo {
+      flex: 1;
+      min-width: 0;
+
+      text-align: left;
+    }
+
+    .cvinfo > b {
+      display: block;
+
+      font-size: 9px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cvinfo > small {
+      display: block;
+
+      font-size: 7px;
+
+      color: #919dae;
+
+      margin-top: 2px;
+    }
+
+    .cvprog {
+      height: 4px;
+
+      background: #edf1f6;
+
+      border-radius: 5px;
+
+      overflow: hidden;
+
+      margin-top: 6px;
+    }
+
+    .cvprog i {
+      display: block;
+
+      width: 0;
+      height: 100%;
+
+      background: var(--c11-blue);
+
+      border-radius: 5px;
+
+      transition: .15s;
+    }
+
+    .cvinfo span {
+      display: block;
+
+      font-size: 7px;
+
+      color: #3b9b76;
+
+      font-weight: 700;
+
+      margin-top: 4px;
+    }
+
+    .cvcard button {
+      width: 25px;
+      height: 25px;
+
+      border: 0;
+
+      border-radius: 7px;
+
+      background: #f1f3f6;
+
+      color: #6f7c8f;
+
+      font-size: 17px;
+
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       COMPOSER
+       ========================================================= */
+
+    .composer {
+      display: flex;
+
+      gap: 7px;
+
+      padding: 10px;
+
+      border-top: 1px solid #e9edf2;
+
+      background: #fff;
+    }
+
+    .composer input {
+      flex: 1;
+
+      min-width: 0;
+
+      border: 1px solid #dfe5ee;
+
+      border-radius: 9px;
+
+      padding: 10px;
+
+      font-size: 10px;
+
+      outline: none;
+    }
+
+    .composer input:focus {
+      border-color: var(--c11-blue);
+    }
+
+    .composer button {
+      width: 40px;
+
+      flex:none;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: var(--c11-blue);
+
+      color: #fff;
+
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       TYPING
+       ========================================================= */
+
+    .typing {
+      font-size: 8px;
+
+      color: #8995a7;
+
+      padding: 0 14px 7px;
+
+      background: var(--c11-bg);
+    }
+
+    .typing span {
+      display: inline-block;
+
+      width: 4px;
+      height: 4px;
+
+      background: #8491a3;
+
+      border-radius: 50%;
+
+      margin: 0 2px;
+
+      animation: typingDot 1.2s infinite ease-in-out;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    @keyframes typingDot {
+      0%, 60%, 100% {
+        transform: translateY(0);
+      }
+
+      30% {
+        transform: translateY(-3px);
+      }
+    }
+
+    /* =========================================================
+       FOOTER NOTE
+       ========================================================= */
+
+    .note {
+      text-align: center;
+
+      color: #9da7b6;
+
+      font-size: 7px;
+
+      padding-bottom: 8px;
+
+      background: #fff;
+    }
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
+    .toast {
+      position: fixed;
+
+      bottom: 20px;
+      left: 50%;
+
+      transform:
+        translate(-50%, 20px);
+
+      background: #122a50;
+
+      color: #fff;
+
+      padding: 9px 13px;
+
+      border-radius: 8px;
+
+      font-size: 9px;
+
+      opacity: 0;
+
+      transition: .25s;
+
+      z-index: 2000;
+
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 700px) {
+
+      .launch {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .speech {
+        display: none;
+      }
+
+      .circle {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+      }
+
+      .chat {
+        right: 10px;
+        bottom: 10px;
+
+        width: calc(100vw - 20px);
+
+        height:
+          min(
+            650px,
+            calc(100vh - 20px)
+          );
+
+        max-height:
+          calc(100vh - 20px);
+
+        border-radius: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="top"><div class="brand"><div class="logo">C11</div><div><b>Cloud 11</b><small>Careers</small></div></div><div class="online"><span class="dot"></span>AI Career Navigator</div></header>
-<main id="candidatePage"><section class="hero"><div><span class="eyebrow">CAREERS AT CLOUD 11</span><h1>Your next opportunity<br><span>starts with Cloudy.</span></h1><p>Apply through an interactive AI-powered conversation. Cloudy guides candidates through the complete application and collects structured recruitment information.</p><div class="stats"><div><b>12</b><span>Open roles</span></div><div><b>3–5 min</b><span>Application time</span></div><div><b>24/7</b><span>Career assistance</span></div></div></div><div class="visual"><div class="orb"></div><div class="cloud-card"><span style="font-size:38px">☁</span><strong>Cloudy</strong><small>AI Career Navigator</small></div><div class="float f1">✓ Guided application</div><div class="float f2">✦ Candidate-friendly</div></div></section><section class="jobs"><div class="head"><div><span class="eyebrow">OPEN POSITIONS</span><h2>Find your next role</h2></div><input id="search" placeholder="⌕ Search jobs..."></div><div id="jobsGrid" class="grid"></div></section>
-<div class="launch"><div class="speech">Hi! I'm Cloudy.<b>Ready to apply?</b></div><button class="circle" id="launcher">☁<i></i></button></div>
-<div id="chat" class="chat hidden"><div class="chathead"><div class="cloudy">☁<i></i></div><div><b>Cloudy</b><small>AI Career Navigator · <em>Online</em></small></div><button class="close" id="close">×</button></div><div class="progress"><div class="plabel"><span id="step">Application · Welcome</span><span id="pct">0%</span></div><div class="track"><div id="bar" class="bar"></div></div></div><div id="msgs" class="msgs"></div><div id="choices" class="choices"></div><div id="loc" class="locform hidden"></div><div id="upload" class="upload hidden">
-<div id="cvDrop" class="cvdrop"><div class="cvicon">📄</div><b>Upload your latest CV</b><small>Drag & drop your resume here or choose a file</small><em>PDF, DOC or DOCX · Max 10 MB</em><label for="cv">Choose file</label><input id="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div>
-<div id="cvCard" class="cvcard hidden"><div class="cvfileicon">📄</div><div class="cvinfo"><b id="cvName"></b><small id="cvSize"></small><div class="cvprog"><i id="cvBar"></i></div><span id="cvStatus">Uploading...</span></div><button id="cvRemove" type="button">×</button></div></div><div id="typing" class="typing hidden"><span></span><span></span><span></span> Cloudy is typing...</div><div id="composer" class="composer"><input id="input" placeholder="Type your answer..."><button id="send">➤</button></div><div class="note">AI-assisted application · Your information is handled securely</div></div></main>
-<div id="toast" class="toast"></div>
-<script>
-const jobs=[
-{id:1,t:'Cloud Engineer',dept:'Google Cloud',l:'Cairo · Hybrid',x:'Mid-level',i:'☁',d:'Design, deploy and operate scalable Google Cloud solutions across compute, networking, storage and databases.'},
-{id:2,t:'Senior Cloud Engineer',dept:'Google Cloud',l:'Cairo · Hybrid',x:'Senior',i:'☁',d:'Lead Google Cloud architecture, migrations, reliability and enterprise cloud engineering initiatives.'},
-{id:3,t:'AI Engineer',dept:'Google Cloud',l:'Cairo · Hybrid',x:'Mid/Senior',i:'✦',d:'Build AI solutions using Gemini, Vertex AI, RAG and modern machine learning workflows.'},
-{id:4,t:'Security Infrastructure Engineer',dept:'Google Cloud',l:'Cairo · Hybrid',x:'Mid/Senior',i:'⌁',d:'Build secure cloud infrastructure, identity controls, network security and security operations capabilities.'},
-{id:5,t:'DevOps Engineer',dept:'Google Cloud',l:'Cairo · Hybrid',x:'Mid-level',i:'⚙',d:'Automate cloud infrastructure, CI/CD pipelines, containers, observability and release operations.'},
-{id:6,t:'Workspace Engineer',dept:'Google Workspace',l:'Cairo · Hybrid',x:'Mid-level',i:'▣',d:'Implement, administer and support Google Workspace environments, collaboration and productivity solutions.'},
-{id:7,t:'Senior Workspace Engineer',dept:'Google Workspace',l:'Cairo · Hybrid',x:'Senior',i:'▣',d:'Lead Google Workspace architecture, migrations, security, adoption and enterprise administration.'},
-{id:8,t:'Salesforce Engineer',dept:'Salesforce',l:'Cairo · Hybrid',x:'Mid-level',i:'☁',d:'Design and deliver Salesforce solutions, integrations, automation and platform customizations.'}
-];
-const countries={
-'Egypt':['Cairo','Giza','Alexandria','Mansoura','Tanta','Aswan'],
-'Saudi Arabia':['Riyadh','Jeddah','Dammam','Khobar','Makkah','Medina'],
-'United Arab Emirates':['Dubai','Abu Dhabi','Sharjah','Ajman'],
-'Jordan':['Amman','Zarqa','Irbid'],
-'Kuwait':['Kuwait City','Hawally','Salmiya'],
-'Qatar':['Doha','Al Rayyan','Al Wakrah'],
-'Bahrain':['Manama','Riffa','Muharraq'],
-'Oman':['Muscat','Salalah','Sohar'],
-'United Kingdom':['London','Manchester','Birmingham','Glasgow','Liverpool'],
-'United States':['New York','Los Angeles','San Francisco','Chicago','Houston','Austin','Seattle'],
-'Canada':['Toronto','Vancouver','Montreal','Calgary','Ottawa'],
-'Germany':['Berlin','Munich','Frankfurt','Hamburg','Cologne'],
-'France':['Paris','Lyon','Marseille','Toulouse','Nice'],
-'Italy':['Rome','Milan','Naples','Turin'],
-'Spain':['Madrid','Barcelona','Valencia','Seville'],
-'Netherlands':['Amsterdam','Rotterdam','The Hague','Utrecht'],
-'Switzerland':['Zurich','Geneva','Basel','Bern'],
-'Australia':['Sydney','Melbourne','Brisbane','Perth','Adelaide'],
-'New Zealand':['Auckland','Wellington','Christchurch'],
-'India':['Mumbai','Delhi','Bengaluru','Hyderabad','Chennai','Pune'],
-'Pakistan':['Karachi','Lahore','Islamabad','Rawalpindi'],
-'Bangladesh':['Dhaka','Chattogram','Khulna'],
-'Turkey':['Istanbul','Ankara','Izmir','Bursa'],
-'Japan':['Tokyo','Osaka','Kyoto','Yokohama'],
-'South Korea':['Seoul','Busan','Incheon','Daegu'],
-'China':['Beijing','Shanghai','Guangzhou','Shenzhen'],
-'Singapore':['Singapore'],
-'Malaysia':['Kuala Lumpur','George Town','Johor Bahru'],
-'South Africa':['Johannesburg','Cape Town','Durban','Pretoria'],
-'Brazil':['São Paulo','Rio de Janeiro','Brasília','Salvador'],
-'Mexico':['Mexico City','Guadalajara','Monterrey','Cancún'],
-'Argentina':['Buenos Aires','Córdoba','Rosario'],
-'Other':[]
-};
-const currencies=[
-['EGP','Egyptian Pound (EGP)'],['USD','US Dollar (USD)'],['SAR','Saudi Riyal (SAR)'],
-['AED','UAE Dirham (AED)'],['KWD','Kuwaiti Dinar (KWD)'],['QAR','Qatari Riyal (QAR)'],
-['BHD','Bahraini Dinar (BHD)'],['OMR','Omani Rial (OMR)'],['JOD','Jordanian Dinar (JOD)'],
-['GBP','British Pound (GBP)'],['EUR','Euro (EUR)'],['CHF','Swiss Franc (CHF)'],
-['CAD','Canadian Dollar (CAD)'],['AUD','Australian Dollar (AUD)'],['NZD','New Zealand Dollar (NZD)'],
-['INR','Indian Rupee (INR)'],['PKR','Pakistani Rupee (PKR)'],['BDT','Bangladeshi Taka (BDT)'],
-['TRY','Turkish Lira (TRY)'],['JPY','Japanese Yen (JPY)'],['CNY','Chinese Yuan (CNY)'],
-['KRW','South Korean Won (KRW)'],['SGD','Singapore Dollar (SGD)'],['MYR','Malaysian Ringgit (MYR)'],
-['ZAR','South African Rand (ZAR)'],['BRL','Brazilian Real (BRL)'],['MXN','Mexican Peso (MXN)'],
-['ARS','Argentine Peso (ARS)']
-];
-const industries=['Technology / IT','Cloud & Infrastructure','Banking & Financial Services','Telecommunications','Healthcare','Retail / E-commerce','Education','Government','Manufacturing','Consulting','Other'];
-const years=['1–2 years','3–5 years','6–9 years','+10 years'];const yes=['Yes','No'];
-let selected=null,idx=0,data={};
-const qs=[
-['start',()=>`Hello and welcome to <b>Cloud 11!</b> 👋<br><br>I'm <b>Cloudy, your AI Career Navigator</b>. I'll guide you through your application for the <b>“${esc(selected.t)}”</b> position. This should take approximately <b>3–5 minutes</b>.<br><br>Shall we get started?`,['Yes']],
-['fullName',()=>`Great! Let's start with some basic information. What is your <b>full name</b>?`],
-['email',()=>`Thank you, <b>${first()}</b>! What is your <b>email address</b>?`],
-['mobile',()=>`What is your <b>mobile number</b>, including country code?`],
-['location',()=>`Which <b>city and country</b> are you currently based in?`,'location'],
-['cv',()=>`Please upload your <b>most recent CV or resume</b>.`,'upload'],
-['linkedin',()=>`Thank you, <b>${first()}</b>! I've successfully received your resume.<br><br>Do you have a <b>LinkedIn profile</b> you'd like to share?`,['Yes','No']],
-['linkedinUrl',()=>`Please enter your <b>LinkedIn profile URL</b>. Type <b>skip</b> if you don't have one.`],
-['employed',()=>`Are you <b>currently employed</b>?`,['Yes','No']],
-['jobTitle',()=>`What is your <b>current job title</b>?`],
-['company',()=>`Which <b>company</b> do you currently work for?`],
-['experience',()=>`How many years of <b>professional experience</b> do you have?`,years],
-['expertise',()=>`What are your <b>primary areas of expertise and professional strengths</b>?`],
-['skills',()=>`What are the <b>key skills and competencies</b> that you use most frequently in your work?`],
-['tools',()=>`What <b>tools, systems, platforms, technologies, or methodologies</b> have you worked with?`],
-['certified',()=>`Do you hold any <b>professional certifications, licenses, or specialized qualifications</b> relevant to your career?`,yes],
-['certifications',()=>`Please list your <b>professional certifications, licenses, or specialized qualifications</b> that are relevant to your career.`],
-['industry',()=>`Which <b>industries or business sectors</b> have you worked in?`,industries],
-['achievements',()=>`Please share <b>one or two significant achievements or projects</b> that best demonstrate your experience and capabilities.`],
-['notice',()=>`What is your <b>notice period</b>?`],
-['currentSalary',()=>`What is your <b>current monthly salary</b>? Please enter numbers only and select the currency.`,'salary'],
-['expectedSalary',()=>`What are your <b>salary expectations</b>? Please enter numbers only and select the currency.`,'salary'],
-['hybrid',()=>`Are you willing to work in a <b>hybrid environment</b>?`,['Yes','No']],
-['why',()=>`Why are you <b>interested in joining Cloud 11</b>?`],
-['fit',()=>`What would make you a <b>strong fit for this position</b>?`],
-['submit',()=>`Thank you. Here's a <b>summary of your application</b>.<br><br>${summary()}<br><br>Would you like to submit your application?`,['Submit Application','Edit / Start Over']]
-];
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function first(){return(data.fullName||'there').split(' ')[0]}
-function renderJobs(q=''){q=q.toLowerCase();document.getElementById('jobsGrid').innerHTML=jobs.filter(j=>(j.t+j.l).toLowerCase().includes(q)).map(j=>`<article class="job"><div class="jobicon">${j.i}</div><h3>${j.t}</h3><p>${j.d}</p><div class="meta"><span>⌖ ${j.l}</span><span>◷ Full-time</span><span>◆ ${j.x}</span></div><button class="apply" onclick="start(${j.id})">Apply with Cloudy →</button></article>`).join('')}
-function msg(type,text){let e=document.createElement('div');e.className='msg '+type;e.innerHTML=`<div class="bubble">${text}</div>`;document.getElementById('msgs').appendChild(e);let m=document.getElementById('msgs');m.scrollTop=m.scrollHeight}
-function bot(text,choices=[]){document.getElementById('typing').classList.remove('hidden');setTimeout(()=>{document.getElementById('typing').classList.add('hidden');msg('bot',text);showChoices(choices)},350)}
-function showChoices(c){let box=document.getElementById('choices');box.innerHTML='';c.forEach(x=>{let b=document.createElement('button');b.className='choice';b.textContent=x;b.onclick=()=>answer(x);box.appendChild(b)})}
-function progress(){let total=qs.length-1,p=Math.round(idx/total*100);document.getElementById('step').textContent=idx?'Application · Step '+idx+' of '+total:'Application · Welcome';document.getElementById('pct').textContent=p+'%';document.getElementById('bar').style.width=p+'%'}
-function start(id){selected=jobs.find(j=>j.id===id);idx=0;data={position:selected.t};document.getElementById('chat').classList.remove('hidden');document.getElementById('msgs').innerHTML='';document.getElementById('choices').innerHTML='';document.getElementById('loc').classList.add('hidden');document.getElementById('upload').classList.add('hidden');document.getElementById('composer').classList.remove('hidden');progress();bot(qs[0][1](),qs[0][2])}
-function setupLocation(){
-let box=document.getElementById('loc');
-box.classList.remove('hidden');
-box.innerHTML=`<select id="country"><option value="">Select country</option>${Object.keys(countries).map(c=>`<option>${c}</option>`).join('')}</select>
-<select id="city"><option value="">Select city</option></select>
-<input id="customCountry" class="custom-loc" placeholder="Enter your country">
-<input id="customCity" class="custom-loc" placeholder="Enter your city">
-<button class="choice" onclick="locationAnswer()">Continue</button>`;
-document.getElementById('country').onchange=e=>{
-const isOther=e.target.value==='Other';
-const city=document.getElementById('city');
-const cc=document.getElementById('customCountry');
-const ccity=document.getElementById('customCity');
-if(isOther){
-city.style.display='none'; cc.style.display='block'; ccity.style.display='block';
-}else{
-city.style.display='block'; cc.style.display='none'; ccity.style.display='none';
-city.innerHTML='<option value="">Select city</option>'+(countries[e.target.value]||[]).map(c=>`<option>${c}</option>`).join('')+`<option value="Other">Other</option>`;
-}};
-document.getElementById('city').onchange=e=>{
-const customCity=document.getElementById('customCity');
-customCity.style.display=e.target.value==='Other'?'block':'none';
-};
-}
-function locationAnswer(){
-let c=document.getElementById('country').value,city=document.getElementById('city').value;
-if(!c)return;
-if(c==='Other'){
-c=document.getElementById('customCountry').value.trim();
-city=document.getElementById('customCity').value.trim();
-}else if(city==='Other'){
-city=document.getElementById('customCity').value.trim();
-}
-if(!c||!city){toast('Please enter/select both country and city.');return}
 
-data.country=c;
-data.city=city;
-data.location=city+', '+c;
+  <!-- =========================================================
+       FLOATING CLOUDY LAUNCHER
+       ========================================================= -->
 
-msg('user',esc(data.location));
-document.getElementById('choices').innerHTML='';
-document.getElementById('loc').classList.add('hidden');
-document.getElementById('composer').classList.remove('hidden');
-idx++;
-progress();
+  <div class="launch" id="launch">
 
-let next=qs[idx];
-if(next){
-if(next[2]==='upload'){
-document.getElementById('composer').classList.add('hidden');
-document.getElementById('upload').classList.remove('hidden');
-}
-if(next[2]==='salary'){
-document.getElementById('composer').classList.add('hidden');
-setupSalary();
-}
-bot(next[1](),next[2]||[]);
-}
-}
-function setupSalary(){
-let box=document.getElementById('loc');
-box.classList.remove('hidden');
-box.innerHTML=`<div class="salaryform">
-<input id="salaryAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Amount (numbers only)" autocomplete="off">
-<select id="salaryCurrency"><option value="">Currency</option>${currencies.map(c=>`<option value="${c[0]}">${c[1]}</option>`).join('')}</select>
-<div class="salaryhint">Numbers only — no commas, symbols, or text.</div>
-<button class="choice" onclick="salaryAnswer()">Continue</button>
-</div>`;
-const amount=document.getElementById('salaryAmount');
-amount.addEventListener('input',()=>{amount.value=amount.value.replace(/[^0-9]/g,'')});
-amount.addEventListener('keydown',e=>{if(['e','E','+','-','.'].includes(e.key))e.preventDefault()});
-setTimeout(()=>amount.focus(),50);
-}
-function salaryAnswer(){
-const amount=document.getElementById('salaryAmount').value.trim();
-const currency=document.getElementById('salaryCurrency').value;
-if(!amount||!currency){toast('Please enter a numeric salary and select a currency.');return}
-answer(amount+' '+currency);
-}
-function answer(v){
-v=String(v).trim();if(!v)return;
-let q=qs[idx];
-if((q[0]==='currentSalary'||q[0]==='expectedSalary') && !/^\d+ [A-Z]{3}$/.test(v)){
-toast('Please enter a valid numeric salary and currency.');return;
-}if(q[0]==='start'){msg('user','Yes');idx++;progress();bot(qs[idx][1]());return}if(q[0]==='linkedin'&&v==='No'){msg('user','No');data.linkedin='No';idx+=2;progress();bot(qs[idx][1](),qs[idx][2]||[]);return}if(q[0]==='employed'&&v==='No'){msg('user','No');data.employed='No';data.jobTitle='Not currently employed';data.company='Not currently employed';idx+=3;progress();bot(qs[idx][1](),qs[idx][2]||[]);return}if(q[0]==='certified'&&v==='No'){msg('user','No');data.certified='No';data.certifications='None';idx+=2;progress();bot(qs[idx][1](),qs[idx][2]||[]);return}if(q[0]==='submit'){if(v==='Submit Application')submit();else restart();return}msg('user',esc(v));data[q[0]]=v;document.getElementById('choices').innerHTML='';document.getElementById('loc').classList.add('hidden');document.getElementById('upload').classList.add('hidden');document.getElementById('composer').classList.remove('hidden');idx++;progress();let next=qs[idx];if(next){if(next[2]==='location'){document.getElementById('composer').classList.add('hidden');setupLocation()}
-if(next[2]==='upload'){document.getElementById('composer').classList.add('hidden');document.getElementById('upload').classList.remove('hidden')}
-if(next[2]==='salary'){document.getElementById('composer').classList.add('hidden');setupSalary()}
-bot(next[1](),next[2]||[])}}
-function summary(){let a=[['Position',data.position],['Name',data.fullName],['Email',data.email],['Mobile',data.mobile],['Location',data.location],['CV',data.cv],['LinkedIn',data.linkedinUrl||data.linkedin],['Employment',data.employed],['Current title',data.jobTitle],['Company',data.company],['Experience',data.experience],['Expertise',data.expertise],['Skills',data.skills],['Tools',data.tools],['Certifications',data.certifications],['Industry',data.industry],['Achievements',data.achievements],['Notice period',data.notice],['Current salary',data.currentSalary],['Salary expectations',data.expectedSalary],['Hybrid',data.hybrid],['Why Cloud 11',data.why],['Strong fit',data.fit]];return a.map(x=>`<span style="display:block;margin:3px 0"><b>${x[0]}:</b> ${esc(x[1]||'—')}</span>`).join('')}
+    <div class="speech">
+      Hi! I'm Cloudy.
+      <b>Ready to apply?</b>
+    </div>
 
-function experienceToNumber(value){
-if(!value)return null;
-const s=String(value).trim();
-if(/^\+?10/.test(s))return 10;
-const m=s.match(/\d+/);
-return m?Number(m[0]):null;
-}
-function salaryToNumber(value){
-if(!value)return null;
-const m=String(value).replace(/,/g,'').match(/\d+(?:\.\d+)?/);
-return m?Number(m[0]):null;
-}
+    <button
+      class="circle"
+      id="launcher"
+      type="button"
+      aria-label="Open Cloudy AI Career Navigator"
+    >
+      ☁
+      <i></i>
+    </button>
 
-async function submit(){
-msg('user','Submit Application');
+  </div>
 
-const nameParts=(data.fullName||'').trim().split(/\s+/).filter(Boolean);
-const firstName=nameParts.shift()||'Candidate';
-const lastName=nameParts.join(' ')||firstName;
 
-const candidate={
-First_Name:firstName,
-Last_Name:lastName,
-Email:data.email||'',
-Mobile:data.mobile||'',
-City:data.city||'',
-Country:data.country||'',
-Current_Employer:data.company||'',
-Current_Job_Title:data.jobTitle||'',
-LinkedIn__s:(data.linkedinUrl||'').trim(),
-Experience_in_Years:experienceToNumber(data.experience),
-Skill_Set:data.skills||'',
-Current_Salary:salaryToNumber(data.currentSalary),
-Expected_Salary:salaryToNumber(data.expectedSalary),
-Additional_Info:[
-`Position Applied: ${data.position||''}`,
-`Employment Status: ${data.employed||''}`,
-`Expertise: ${data.expertise||''}`,
-`Tools / Technologies: ${data.tools||''}`,
-`Certifications: ${data.certifications||''}`,
-`Industry: ${data.industry||''}`,
-`Achievements / Projects: ${data.achievements||''}`,
-`Notice Period: ${data.notice||''}`,
-`Willing to Work Hybrid: ${data.hybrid||''}`,
-`Why Cloud 11: ${data.why||''}`,
-`Why Strong Fit: ${data.fit||''}`,
-`CV File: ${data.cv||''}`
-].join('\n')
-};
+  <!-- =========================================================
+       CHATBOT
+       ========================================================= -->
 
-Object.keys(candidate).forEach(k=>{
-if(candidate[k]===null || candidate[k]==='') delete candidate[k];
-});
+  <div
+    id="chat"
+    class="chat hidden"
+    role="dialog"
+    aria-label="Cloudy AI Career Navigator"
+  >
 
-try{
-const response=await fetch('/api/candidates',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify(candidate)
-});
+    <!-- HEADER -->
 
-const result=await response.json().catch(()=>({}));
+    <div class="chathead">
 
-if(!response.ok){
-console.error('Zoho Recruit error:',result);
-bot(`❌ <b>We couldn't submit your application.</b><br><br>Please try again in a moment.`);
-toast('Application submission failed');
-return;
-}
+      <div class="cloudy">
+        ☁
+        <i></i>
+      </div>
 
-const candidateId=result.candidateId||result.id||'Submitted';
+      <div class="chathead-info">
+        <b>Cloudy</b>
+        <small>
+          AI Career Navigator ·
+          <em>Online</em>
+        </small>
+      </div>
 
-if(data.cvFile){
-try{
-const formData=new FormData();
-formData.append('cv',data.cvFile,data.cvFile.name);
-const uploadResponse=await fetch('/api/candidates/'+encodeURIComponent(candidateId)+'/cv',{
-method:'POST',
-body:formData
-});
-const uploadResult=await uploadResponse.json().catch(()=>({}));
-if(!uploadResponse.ok){
-console.warn('CV upload failed:',uploadResult);
-}
-}catch(uploadError){
-console.warn('CV upload error:',uploadError);
-}
-}
+      <button
+        class="close"
+        id="close"
+        type="button"
+        aria-label="Close Cloudy"
+      >
+        ×
+      </button>
 
-bot(`🎉 <b>Your application has been successfully submitted.</b><br><br>
-Our recruitment team will review your profile and contact you if your qualifications match our requirements.<br><br>
-Thank you for considering <b>Cloud 11</b> as your next career destination.<br><br>
-<b style="color:#2e986f">Application Reference: ${esc(candidateId)}</b>`);
+    </div>
 
-document.getElementById('composer').classList.add('hidden');
-document.getElementById('choices').innerHTML='';
-document.getElementById('upload').classList.add('hidden');
-toast('Application submitted successfully');
-}catch(error){
-console.error('Submission error:',error);
-bot(`❌ <b>Something went wrong while submitting your application.</b><br><br>Please try again.`);
-toast('Could not connect to recruitment system');
-}
-}
-</script>
-<script>
-/* Make Cloudy's floating icon itself draggable */
-(function(){
-  const launch = document.querySelector('.launch');
-  const circle = document.getElementById('launcher');
-  const chat = document.getElementById('chat');
-  const close = document.getElementById('close');
 
-  if(!launch || !circle) return;
+    <!-- PROGRESS -->
 
-  let dragging = false;
-  let moved = false;
-  let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+    <div class="progress">
 
-  function point(e){
-    if(e.touches && e.touches.length) {
-      return {x:e.touches[0].clientX,y:e.touches[0].clientY};
+      <div class="plabel">
+        <span id="step">
+          Application · Welcome
+        </span>
+
+        <span id="pct">
+          0%
+        </span>
+      </div>
+
+      <div class="track">
+        <div
+          id="bar"
+          class="bar"
+        ></div>
+      </div>
+
+    </div>
+
+
+    <!-- MESSAGES -->
+
+    <div
+      id="msgs"
+      class="msgs"
+    ></div>
+
+
+    <!-- QUICK CHOICES -->
+
+    <div
+      id="choices"
+      class="choices"
+    ></div>
+
+
+    <!-- LOCATION -->
+
+    <div
+      id="loc"
+      class="locform hidden"
+    ></div>
+
+
+    <!-- CV UPLOAD -->
+
+    <div
+      id="upload"
+      class="upload hidden"
+    >
+
+      <div
+        id="cvDrop"
+        class="cvdrop"
+      >
+
+        <div class="cvicon">
+          📄
+        </div>
+
+        <b>
+          Upload your latest CV
+        </b>
+
+        <small>
+          Drag & drop your resume here
+          or choose a file
+        </small>
+
+        <em>
+          PDF, DOC or DOCX · Max 10 MB
+        </em>
+
+        <label for="cv">
+          Choose file
+        </label>
+
+        <input
+          id="cv"
+          type="file"
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        >
+
+      </div>
+
+
+      <div
+        id="cvCard"
+        class="cvcard hidden"
+      >
+
+        <div class="cvfileicon">
+          📄
+        </div>
+
+        <div class="cvinfo">
+
+          <b id="cvName"></b>
+
+          <small id="cvSize"></small>
+
+          <div class="cvprog">
+            <i id="cvBar"></i>
+          </div>
+
+          <span id="cvStatus">
+            Uploading...
+          </span>
+
+        </div>
+
+        <button
+          id="cvRemove"
+          type="button"
+          aria-label="Remove CV"
+        >
+          ×
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TYPING -->
+
+    <div
+      id="typing"
+      class="typing hidden"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+      Cloudy is typing...
+    </div>
+
+
+    <!-- COMPOSER -->
+
+    <div
+      id="composer"
+      class="composer"
+    >
+
+      <input
+        id="input"
+        type="text"
+        placeholder="Type your answer..."
+        autocomplete="off"
+      >
+
+      <button
+        id="send"
+        type="button"
+        aria-label="Send message"
+      >
+        ➤
+      </button>
+
+    </div>
+
+
+    <div class="note">
+      AI-assisted application ·
+      Your information is handled securely
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <script>
+
+    /* =========================================================
+       JOB POSITIONS
+       ========================================================= */
+
+    const jobs = [
+      {
+        id: 1,
+        t: 'Cloud Engineer',
+        dept: 'Google Cloud',
+        l: 'Cairo · Hybrid',
+        x: 'Mid-level'
+      },
+      {
+        id: 2,
+        t: 'Senior Cloud Engineer',
+        dept: 'Google Cloud',
+        l: 'Cairo · Hybrid',
+        x: 'Senior'
+      },
+      {
+        id: 3,
+        t: 'AI Engineer',
+        dept: 'Google Cloud',
+        l: 'Cairo · Hybrid',
+        x: 'Mid/Senior'
+      },
+      {
+        id: 4,
+        t: 'Security Infrastructure Engineer',
+        dept: 'Google Cloud',
+        l: 'Cairo · Hybrid',
+        x: 'Mid/Senior'
+      },
+      {
+        id: 5,
+        t: 'DevOps Engineer',
+        dept: 'Google Cloud',
+        l: 'Cairo · Hybrid',
+        x: 'Mid-level'
+      },
+      {
+        id: 6,
+        t: 'Workspace Engineer',
+        dept: 'Google Workspace',
+        l: 'Cairo · Hybrid',
+        x: 'Mid-level'
+      },
+      {
+        id: 7,
+        t: 'Senior Workspace Engineer',
+        dept: 'Google Workspace',
+        l: 'Cairo · Hybrid',
+        x: 'Senior'
+      },
+      {
+        id: 8,
+        t: 'Salesforce Engineer',
+        dept: 'Salesforce',
+        l: 'Cairo · Hybrid',
+        x: 'Mid-level'
+      }
+    ];
+
+
+    /* =========================================================
+       COUNTRIES / CITIES
+       ========================================================= */
+
+    const countries = {
+
+      'Egypt': [
+        'Cairo',
+        'Giza',
+        'Alexandria',
+        'Mansoura',
+        'Tanta',
+        'Aswan'
+      ],
+
+      'Saudi Arabia': [
+        'Riyadh',
+        'Jeddah',
+        'Dammam',
+        'Khobar',
+        'Makkah',
+        'Medina'
+      ],
+
+      'United Arab Emirates': [
+        'Dubai',
+        'Abu Dhabi',
+        'Sharjah',
+        'Ajman'
+      ],
+
+      'Jordan': [
+        'Amman',
+        'Zarqa',
+        'Irbid'
+      ],
+
+      'Kuwait': [
+        'Kuwait City',
+        'Hawally',
+        'Salmiya'
+      ],
+
+      'Qatar': [
+        'Doha',
+        'Al Rayyan',
+        'Al Wakrah'
+      ],
+
+      'Bahrain': [
+        'Manama',
+        'Riffa',
+        'Muharraq'
+      ],
+
+      'Oman': [
+        'Muscat',
+        'Salalah',
+        'Sohar'
+      ],
+
+      'United Kingdom': [
+        'London',
+        'Manchester',
+        'Birmingham',
+        'Glasgow',
+        'Liverpool'
+      ],
+
+      'United States': [
+        'New York',
+        'Los Angeles',
+        'San Francisco',
+        'Chicago',
+        'Houston',
+        'Austin',
+        'Seattle'
+      ],
+
+      'Canada': [
+        'Toronto',
+        'Vancouver',
+        'Montreal',
+        'Calgary',
+        'Ottawa'
+      ],
+
+      'Germany': [
+        'Berlin',
+        'Munich',
+        'Frankfurt',
+        'Hamburg',
+        'Cologne'
+      ],
+
+      'France': [
+        'Paris',
+        'Lyon',
+        'Marseille',
+        'Toulouse',
+        'Nice'
+      ],
+
+      'Italy': [
+        'Rome',
+        'Milan',
+        'Naples',
+        'Turin'
+      ],
+
+      'Spain': [
+        'Madrid',
+        'Barcelona',
+        'Valencia',
+        'Seville'
+      ],
+
+      'Netherlands': [
+        'Amsterdam',
+        'Rotterdam',
+        'The Hague',
+        'Utrecht'
+      ],
+
+      'Switzerland': [
+        'Zurich',
+        'Geneva',
+        'Basel',
+        'Bern'
+      ],
+
+      'Australia': [
+        'Sydney',
+        'Melbourne',
+        'Brisbane',
+        'Perth',
+        'Adelaide'
+      ],
+
+      'New Zealand': [
+        'Auckland',
+        'Wellington',
+        'Christchurch'
+      ],
+
+      'India': [
+        'Mumbai',
+        'Delhi',
+        'Bengaluru',
+        'Hyderabad',
+        'Chennai',
+        'Pune'
+      ],
+
+      'Pakistan': [
+        'Karachi',
+        'Lahore',
+        'Islamabad',
+        'Rawalpindi'
+      ],
+
+      'Bangladesh': [
+        'Dhaka',
+        'Chattogram',
+        'Khulna'
+      ],
+
+      'Turkey': [
+        'Istanbul',
+        'Ankara',
+        'Izmir',
+        'Bursa'
+      ],
+
+      'Japan': [
+        'Tokyo',
+        'Osaka',
+        'Kyoto',
+        'Yokohama'
+      ],
+
+      'South Korea': [
+        'Seoul',
+        'Busan',
+        'Incheon',
+        'Daegu'
+      ],
+
+      'China': [
+        'Beijing',
+        'Shanghai',
+        'Guangzhou',
+        'Shenzhen'
+      ],
+
+      'Singapore': [
+        'Singapore'
+      ],
+
+      'Malaysia': [
+        'Kuala Lumpur',
+        'George Town',
+        'Johor Bahru'
+      ],
+
+      'South Africa': [
+        'Johannesburg',
+        'Cape Town',
+        'Durban',
+        'Pretoria'
+      ],
+
+      'Brazil': [
+        'São Paulo',
+        'Rio de Janeiro',
+        'Brasília',
+        'Salvador'
+      ],
+
+      'Mexico': [
+        'Mexico City',
+        'Guadalajara',
+        'Monterrey',
+        'Cancún'
+      ],
+
+      'Argentina': [
+        'Buenos Aires',
+        'Córdoba',
+        'Rosario'
+      ],
+
+      'Other': []
+    };
+
+
+    /* =========================================================
+       CURRENCIES
+       ========================================================= */
+
+    const currencies = [
+
+      ['EGP', 'Egyptian Pound (EGP)'],
+      ['USD', 'US Dollar (USD)'],
+      ['SAR', 'Saudi Riyal (SAR)'],
+      ['AED', 'UAE Dirham (AED)'],
+      ['KWD', 'Kuwaiti Dinar (KWD)'],
+      ['QAR', 'Qatari Riyal (QAR)'],
+      ['BHD', 'Bahraini Dinar (BHD)'],
+      ['OMR', 'Omani Rial (OMR)'],
+      ['JOD', 'Jordanian Dinar (JOD)'],
+      ['GBP', 'British Pound (GBP)'],
+      ['EUR', 'Euro (EUR)'],
+      ['CHF', 'Swiss Franc (CHF)'],
+      ['CAD', 'Canadian Dollar (CAD)'],
+      ['AUD', 'Australian Dollar (AUD)'],
+      ['NZD', 'New Zealand Dollar (NZD)'],
+      ['INR', 'Indian Rupee (INR)'],
+      ['PKR', 'Pakistani Rupee (PKR)'],
+      ['BDT', 'Bangladeshi Taka (BDT)'],
+      ['TRY', 'Turkish Lira (TRY)'],
+      ['JPY', 'Japanese Yen (JPY)'],
+      ['CNY', 'Chinese Yuan (CNY)'],
+      ['KRW', 'South Korean Won (KRW)'],
+      ['SGD', 'Singapore Dollar (SGD)'],
+      ['MYR', 'Malaysian Ringgit (MYR)'],
+      ['ZAR', 'South African Rand (ZAR)'],
+      ['BRL', 'Brazilian Real (BRL)'],
+      ['MXN', 'Mexican Peso (MXN)'],
+      ['ARS', 'Argentine Peso (ARS)']
+    ];
+
+
+    const industries = [
+      'Technology / IT',
+      'Cloud & Infrastructure',
+      'Banking & Financial Services',
+      'Telecommunications',
+      'Healthcare',
+      'Retail / E-commerce',
+      'Education',
+      'Government',
+      'Manufacturing',
+      'Consulting',
+      'Other'
+    ];
+
+
+    const years = [
+      '1–2 years',
+      '3–5 years',
+      '6–9 years',
+      '+10 years'
+    ];
+
+
+    const yes = [
+      'Yes',
+      'No'
+    ];
+
+
+    /* =========================================================
+       STATE
+       ========================================================= */
+
+    let selected = null;
+
+    let idx = 0;
+
+    let data = {};
+
+
+    /* =========================================================
+       QUESTIONS
+       ========================================================= */
+
+    const qs = [
+
+      [
+        'start',
+        () => `
+          Hello and welcome to <b>Cloud 11!</b> 👋
+          <br><br>
+          I'm <b>Cloudy, your AI Career Navigator</b>.
+          I'll guide you through your application
+          for the <b>“${esc(selected?.t || 'selected position')}”</b>.
+          This should take approximately
+          <b>3–5 minutes</b>.
+          <br><br>
+          Shall we get started?
+        `,
+        ['Yes']
+      ],
+
+      [
+        'fullName',
+        () => `
+          Great! Let's start with some basic information.
+          What is your <b>full name</b>?
+        `
+      ],
+
+      [
+        'email',
+        () => `
+          Thank you, <b>${first()}</b>!
+          What is your <b>email address</b>?
+        `
+      ],
+
+      [
+        'mobile',
+        () => `
+          What is your <b>mobile number</b>,
+          including country code?
+        `
+      ],
+
+      [
+        'location',
+        () => `
+          Which <b>city and country</b>
+          are you currently based in?
+        `,
+        'location'
+      ],
+
+      [
+        'cv',
+        () => `
+          Please upload your
+          <b>most recent CV or resume</b>.
+        `,
+        'upload'
+      ],
+
+      [
+        'linkedin',
+        () => `
+          Thank you, <b>${first()}</b>!
+          I've successfully received your resume.
+          <br><br>
+          Do you have a <b>LinkedIn profile</b>
+          you'd like to share?
+        `,
+        ['Yes', 'No']
+      ],
+
+      [
+        'linkedinUrl',
+        () => `
+          Please enter your
+          <b>LinkedIn profile URL</b>.
+          Type <b>skip</b> if you don't have one.
+        `
+      ],
+
+      [
+        'employed',
+        () => `
+          Are you <b>currently employed</b>?
+        `,
+        ['Yes', 'No']
+      ],
+
+      [
+        'jobTitle',
+        () => `
+          What is your
+          <b>current job title</b>?
+        `
+      ],
+
+      [
+        'company',
+        () => `
+          Which <b>company</b>
+          do you currently work for?
+        `
+      ],
+
+      [
+        'experience',
+        () => `
+          How many years of
+          <b>professional experience</b>
+          do you have?
+        `,
+        years
+      ],
+
+      [
+        'expertise',
+        () => `
+          What are your
+          <b>primary areas of expertise
+          and professional strengths</b>?
+        `
+      ],
+
+      [
+        'skills',
+        () => `
+          What are the
+          <b>key skills and competencies</b>
+          that you use most frequently
+          in your work?
+        `
+      ],
+
+      [
+        'tools',
+        () => `
+          What <b>tools, systems, platforms,
+          technologies, or methodologies</b>
+          have you worked with?
+        `
+      ],
+
+      [
+        'certified',
+        () => `
+          Do you hold any
+          <b>professional certifications,
+          licenses, or specialized qualifications</b>
+          relevant to your career?
+        `,
+        yes
+      ],
+
+      [
+        'certifications',
+        () => `
+          Please list your
+          <b>professional certifications,
+          licenses, or specialized qualifications</b>
+          that are relevant to your career.
+        `
+      ],
+
+      [
+        'industry',
+        () => `
+          Which <b>industries or business sectors</b>
+          have you worked in?
+        `,
+        industries
+      ],
+
+      [
+        'achievements',
+        () => `
+          Please share <b>one or two significant
+          achievements or projects</b> that best
+          demonstrate your experience and capabilities.
+        `
+      ],
+
+      [
+        'notice',
+        () => `
+          What is your <b>notice period</b>?
+        `
+      ],
+
+      [
+        'currentSalary',
+        () => `
+          What is your <b>current monthly salary</b>?
+          Please enter numbers only and select the currency.
+        `,
+        'salary'
+      ],
+
+      [
+        'expectedSalary',
+        () => `
+          What are your <b>salary expectations</b>?
+          Please enter numbers only and select the currency.
+        `,
+        'salary'
+      ],
+
+      [
+        'hybrid',
+        () => `
+          Are you willing to work in a
+          <b>hybrid environment</b>?
+        `,
+        ['Yes', 'No']
+      ],
+
+      [
+        'why',
+        () => `
+          Why are you
+          <b>interested in joining Cloud 11</b>?
+        `
+      ],
+
+      [
+        'fit',
+        () => `
+          What would make you a
+          <b>strong fit for this position</b>?
+        `
+      ],
+
+      [
+        'submit',
+        () => `
+          Thank you.
+          Here's a <b>summary of your application</b>.
+          <br><br>
+          ${summary()}
+          <br><br>
+          Would you like to submit your application?
+        `,
+        ['Submit Application', 'Edit / Start Over']
+      ]
+
+    ];
+
+
+    /* =========================================================
+       HELPERS
+       ========================================================= */
+
+    function esc(v) {
+
+      return String(v ?? '').replace(
+        /[&<>"']/g,
+        c => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[c])
+      );
+
     }
-    return {x:e.clientX,y:e.clientY};
-  }
 
-  function down(e){
-    if(e.target.closest('.speech')) return;
-    const p = point(e);
-    const r = launch.getBoundingClientRect();
 
-    dragging = true;
-    moved = false;
-    startX = p.x;
-    startY = p.y;
-    startLeft = r.left;
-    startTop = r.top;
+    function first() {
 
-    launch.style.left = r.left + 'px';
-    launch.style.top = r.top + 'px';
-    launch.style.right = 'auto';
-    launch.style.bottom = 'auto';
-    launch.classList.add('dragging');
+      return (
+        data.fullName ||
+        'there'
+      ).split(' ')[0];
 
-    if(e.type === 'touchstart') e.preventDefault();
-  }
-
-  function move(e){
-    if(!dragging) return;
-    const p = point(e);
-    const dx = p.x - startX;
-    const dy = p.y - startY;
-
-    if(Math.abs(dx) > 4 || Math.abs(dy) > 4) moved = true;
-
-    const maxLeft = window.innerWidth - launch.offsetWidth - 5;
-    const maxTop = window.innerHeight - launch.offsetHeight - 5;
-
-    const left = Math.max(5, Math.min(startLeft + dx, maxLeft));
-    const top = Math.max(5, Math.min(startTop + dy, maxTop));
-
-    launch.style.left = left + 'px';
-    launch.style.top = top + 'px';
-
-    if(e.type === 'touchmove') e.preventDefault();
-  }
-
-  function up(){
-    if(!dragging) return;
-    dragging = false;
-    launch.classList.remove('dragging');
-    setTimeout(()=>{ moved = false; },80);
-  }
-
-  circle.addEventListener('mousedown', down);
-  document.addEventListener('mousemove', move);
-  document.addEventListener('mouseup', up);
-
-  circle.addEventListener('touchstart', down, {passive:false});
-  document.addEventListener('touchmove', move, {passive:false});
-  document.addEventListener('touchend', up);
-
-  /* Clicking opens chat; dragging does not. */
-  circle.addEventListener('click', function(e){
-    if(moved){
-      e.preventDefault();
-      e.stopPropagation();
-      return;
     }
-    if(chat) chat.classList.remove('hidden');
-    launch.classList.add('hidden');
-  });
 
-  /* X closes the chat and restores the floating icon at its last position. */
-  if(close){
-    close.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      if(chat) chat.classList.add('hidden');
-      launch.classList.remove('hidden');
+
+    function msg(type, text) {
+
+      const e = document.createElement('div');
+
+      e.className =
+        'msg ' + type;
+
+      e.innerHTML =
+        `<div class="bubble">${text}</div>`;
+
+      document
+        .getElementById('msgs')
+        .appendChild(e);
+
+      const m =
+        document.getElementById('msgs');
+
+      m.scrollTop = m.scrollHeight;
+
+    }
+
+
+    function bot(text, choices = []) {
+
+      document
+        .getElementById('typing')
+        .classList.remove('hidden');
+
+      setTimeout(() => {
+
+        document
+          .getElementById('typing')
+          .classList.add('hidden');
+
+        msg('bot', text);
+
+        showChoices(choices);
+
+      }, 350);
+
+    }
+
+
+    function showChoices(c) {
+
+      const box =
+        document.getElementById('choices');
+
+      box.innerHTML = '';
+
+      c.forEach(x => {
+
+        const b =
+          document.createElement('button');
+
+        b.className = 'choice';
+
+        b.textContent = x;
+
+        b.onclick = () =>
+          answer(x);
+
+        box.appendChild(b);
+
+      });
+
+    }
+
+
+    function progress() {
+
+      const total =
+        qs.length - 1;
+
+      const p =
+        Math.round(
+          idx / total * 100
+        );
+
+      document
+        .getElementById('step')
+        .textContent =
+          idx
+            ? `Application · Step ${idx} of ${total}`
+            : 'Application · Welcome';
+
+      document
+        .getElementById('pct')
+        .textContent =
+          p + '%';
+
+      document
+        .getElementById('bar')
+        .style.width =
+          p + '%';
+
+    }
+
+
+    function toast(text) {
+
+      const t =
+        document.getElementById('toast');
+
+      t.textContent = text;
+
+      t.classList.add('show');
+
+      setTimeout(() => {
+
+        t.classList.remove('show');
+
+      }, 2500);
+
+    }
+
+
+    /* =========================================================
+       OPEN CHAT
+       ========================================================= */
+
+    function openChat() {
+
+      document
+        .getElementById('chat')
+        .classList.remove('hidden');
+
+      document
+        .getElementById('launch')
+        .classList.add('hidden');
+
+      if (!selected) {
+
+        start();
+
+      }
+
+    }
+
+
+    /* =========================================================
+       START APPLICATION
+       ========================================================= */
+
+    function start(position) {
+
+      /*
+       * If the website passes a position using:
+       *
+       * ?position=Cloud%20Engineer
+       *
+       * use that position.
+       */
+
+      const urlParams =
+        new URLSearchParams(
+          window.location.search
+        );
+
+      const urlPosition =
+        urlParams.get('position');
+
+
+      const requestedPosition =
+        position ||
+        urlPosition;
+
+
+      if (requestedPosition) {
+
+        const matched =
+          jobs.find(
+            j =>
+              j.t.toLowerCase() ===
+              requestedPosition.toLowerCase()
+          );
+
+        selected =
+          matched || {
+            id: 999,
+            t: requestedPosition,
+            dept: 'Cloud 11',
+            l: '',
+            x: ''
+          };
+
+      } else {
+
+        /*
+         * If no position was supplied,
+         * ask the candidate to select one.
+         */
+
+        selected = null;
+
+      }
+
+
+      idx = 0;
+
+      data = {};
+
+      if (selected) {
+
+        data.position =
+          selected.t;
+
+      }
+
+
+      document
+        .getElementById('chat')
+        .classList.remove('hidden');
+
+      document
+        .getElementById('launch')
+        .classList.add('hidden');
+
+      document
+        .getElementById('msgs')
+        .innerHTML = '';
+
+      document
+        .getElementById('choices')
+        .innerHTML = '';
+
+      document
+        .getElementById('loc')
+        .classList.add('hidden');
+
+      document
+        .getElementById('upload')
+        .classList.add('hidden');
+
+      document
+        .getElementById('composer')
+        .classList.remove('hidden');
+
+      progress();
+
+
+      /*
+       * If there is no selected position,
+       * ask the candidate first.
+       */
+
+      if (!selected) {
+
+        bot(
+          `
+            Hello and welcome to
+            <b>Cloud 11!</b> 👋
+            <br><br>
+            I'm <b>Cloudy, your AI Career Navigator</b>.
+            <br><br>
+            Which position would you like
+            to apply for?
+          `,
+          jobs.map(j => j.t)
+        );
+
+        return;
+
+      }
+
+
+      bot(
+        qs[0][1](),
+        qs[0][2]
+      );
+
+    }
+
+
+    /* =========================================================
+       POSITION SELECTION
+       ========================================================= */
+
+    function selectPosition(position) {
+
+      selected =
+        jobs.find(
+          j => j.t === position
+        ) || {
+          id: 999,
+          t: position,
+          dept: 'Cloud 11',
+          l: '',
+          x: ''
+        };
+
+      data = {
+        position: selected.t
+      };
+
+      idx = 0;
+
+      document
+        .getElementById('choices')
+        .innerHTML = '';
+
+      progress();
+
+      bot(
+        qs[0][1](),
+        qs[0][2]
+      );
+
+    }
+
+
+    /* =========================================================
+       LOCATION
+       ========================================================= */
+
+    function setupLocation() {
+
+      const box =
+        document.getElementById('loc');
+
+      box.classList.remove('hidden');
+
+      box.innerHTML = `
+
+        <select id="country">
+          <option value="">
+            Select country
+          </option>
+
+          ${Object.keys(countries)
+            .map(
+              c =>
+                `<option>${esc(c)}</option>`
+            )
+            .join('')}
+
+        </select>
+
+
+        <select id="city">
+          <option value="">
+            Select city
+          </option>
+        </select>
+
+
+        <input
+          id="customCountry"
+          class="custom-loc"
+          placeholder="Enter your country"
+        >
+
+
+        <input
+          id="customCity"
+          class="custom-loc"
+          placeholder="Enter your city"
+        >
+
+
+        <button
+          class="choice"
+          onclick="locationAnswer()"
+        >
+          Continue
+        </button>
+
+      `;
+
+
+      document
+        .getElementById('country')
+        .onchange = e => {
+
+          const isOther =
+            e.target.value === 'Other';
+
+          const city =
+            document.getElementById('city');
+
+          const cc =
+            document.getElementById(
+              'customCountry'
+            );
+
+          const ccity =
+            document.getElementById(
+              'customCity'
+            );
+
+
+          if (isOther) {
+
+            city.style.display = 'none';
+
+            cc.style.display = 'block';
+
+            ccity.style.display = 'block';
+
+          } else {
+
+            city.style.display = 'block';
+
+            cc.style.display = 'none';
+
+            ccity.style.display = 'none';
+
+            city.innerHTML =
+              '<option value="">Select city</option>' +
+
+              (countries[e.target.value] || [])
+                .map(
+                  c =>
+                    `<option>${esc(c)}</option>`
+                )
+                .join('') +
+
+              `<option value="Other">Other</option>`;
+
+          }
+
+        };
+
+
+      document
+        .getElementById('city')
+        .onchange = e => {
+
+          const customCity =
+            document.getElementById(
+              'customCity'
+            );
+
+          customCity.style.display =
+            e.target.value === 'Other'
+              ? 'block'
+              : 'none';
+
+        };
+
+    }
+
+
+    function locationAnswer() {
+
+      let c =
+        document.getElementById(
+          'country'
+        ).value;
+
+      let city =
+        document.getElementById(
+          'city'
+        ).value;
+
+
+      if (!c) {
+
+        toast(
+          'Please select your country.'
+        );
+
+        return;
+
+      }
+
+
+      if (c === 'Other') {
+
+        c =
+          document
+            .getElementById(
+              'customCountry'
+            )
+            .value
+            .trim();
+
+        city =
+          document
+            .getElementById(
+              'customCity'
+            )
+            .value
+            .trim();
+
+      } else if (city === 'Other') {
+
+        city =
+          document
+            .getElementById(
+              'customCity'
+            )
+            .value
+            .trim();
+
+      }
+
+
+      if (!c || !city) {
+
+        toast(
+          'Please enter/select both country and city.'
+        );
+
+        return;
+
+      }
+
+
+      data.country = c;
+
+      data.city = city;
+
+      data.location =
+        city + ', ' + c;
+
+
+      msg(
+        'user',
+        esc(data.location)
+      );
+
+
+      document
+        .getElementById('choices')
+        .innerHTML = '';
+
+      document
+        .getElementById('loc')
+        .classList.add('hidden');
+
+      document
+        .getElementById('composer')
+        .classList.remove('hidden');
+
+
+      idx++;
+
+      progress();
+
+
+      const next =
+        qs[idx];
+
+
+      if (next) {
+
+        if (next[2] === 'upload') {
+
+          document
+            .getElementById('composer')
+            .classList.add('hidden');
+
+          document
+            .getElementById('upload')
+            .classList.remove('hidden');
+
+        }
+
+
+        if (next[2] === 'salary') {
+
+          document
+            .getElementById('composer')
+            .classList.add('hidden');
+
+          setupSalary();
+
+        }
+
+
+        bot(
+          next[1](),
+          next[2] || []
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SALARY
+       ========================================================= */
+
+    function setupSalary() {
+
+      const box =
+        document.getElementById('loc');
+
+      box.classList.remove('hidden');
+
+      box.innerHTML = `
+
+        <div class="salaryform">
+
+          <input
+            id="salaryAmount"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            placeholder="Amount (numbers only)"
+            autocomplete="off"
+          >
+
+
+          <select id="salaryCurrency">
+
+            <option value="">
+              Currency
+            </option>
+
+            ${currencies
+              .map(
+                c =>
+                  `<option value="${c[0]}">${esc(c[1])}</option>`
+              )
+              .join('')}
+
+          </select>
+
+
+          <div class="salaryhint">
+            Numbers only — no commas, symbols, or text.
+          </div>
+
+
+          <button
+            class="choice"
+            onclick="salaryAnswer()"
+          >
+            Continue
+          </button>
+
+        </div>
+
+      `;
+
+
+      const amount =
+        document.getElementById(
+          'salaryAmount'
+        );
+
+
+      amount.addEventListener(
+        'input',
+        () => {
+
+          amount.value =
+            amount.value.replace(
+              /[^0-9]/g,
+              ''
+            );
+
+        }
+      );
+
+
+      amount.addEventListener(
+        'keydown',
+        e => {
+
+          if (
+            ['e', 'E', '+', '-', '.']
+              .includes(e.key)
+          ) {
+
+            e.preventDefault();
+
+          }
+
+        }
+      );
+
+
+      setTimeout(
+        () => amount.focus(),
+        50
+      );
+
+    }
+
+
+    function salaryAnswer() {
+
+      const amount =
+        document.getElementById(
+          'salaryAmount'
+        ).value.trim();
+
+      const currency =
+        document.getElementById(
+          'salaryCurrency'
+        ).value;
+
+
+      if (!amount || !currency) {
+
+        toast(
+          'Please enter a numeric salary and select a currency.'
+        );
+
+        return;
+
+      }
+
+
+      answer(
+        amount + ' ' + currency
+      );
+
+    }
+
+
+    /* =========================================================
+       ANSWER
+       ========================================================= */
+
+    function answer(v) {
+
+      v =
+        String(v).trim();
+
+
+      if (!v) return;
+
+
+      /*
+       * Position selection before application starts.
+       */
+
+      if (
+        !selected &&
+        idx === 0
+      ) {
+
+        selectPosition(v);
+
+        return;
+
+      }
+
+
+      const q =
+        qs[idx];
+
+
+      if (
+        !q
+      ) return;
+
+
+      if (
+        (
+          q[0] === 'currentSalary' ||
+          q[0] === 'expectedSalary'
+        ) &&
+        !/^\d+ [A-Z]{3}$/.test(v)
+      ) {
+
+        toast(
+          'Please enter a valid numeric salary and currency.'
+        );
+
+        return;
+
+      }
+
+
+      if (
+        q[0] === 'start'
+      ) {
+
+        msg(
+          'user',
+          'Yes'
+        );
+
+        idx++;
+
+        progress();
+
+        bot(
+          qs[idx][1]()
+        );
+
+        return;
+
+      }
+
+
+      if (
+        q[0] === 'linkedin' &&
+        v === 'No'
+      ) {
+
+        msg(
+          'user',
+          'No'
+        );
+
+        data.linkedin =
+          'No';
+
+        idx += 2;
+
+        progress();
+
+        bot(
+          qs[idx][1](),
+          qs[idx][2] || []
+        );
+
+        return;
+
+      }
+
+
+      if (
+        q[0] === 'employed' &&
+        v === 'No'
+      ) {
+
+        msg(
+          'user',
+          'No'
+        );
+
+        data.employed =
+          'No';
+
+        data.jobTitle =
+          'Not currently employed';
+
+        data.company =
+          'Not currently employed';
+
+        idx += 3;
+
+        progress();
+
+        bot(
+          qs[idx][1](),
+          qs[idx][2] || []
+        );
+
+        return;
+
+      }
+
+
+      if (
+        q[0] === 'certified' &&
+        v === 'No'
+      ) {
+
+        msg(
+          'user',
+          'No'
+        );
+
+        data.certified =
+          'No';
+
+        data.certifications =
+          'None';
+
+        idx += 2;
+
+        progress();
+
+        bot(
+          qs[idx][1](),
+          qs[idx][2] || []
+        );
+
+        return;
+
+      }
+
+
+      if (
+        q[0] === 'submit'
+      ) {
+
+        if (
+          v === 'Submit Application'
+        ) {
+
+          submit();
+
+        } else {
+
+          restart();
+
+        }
+
+        return;
+
+      }
+
+
+      msg(
+        'user',
+        esc(v)
+      );
+
+
+      data[q[0]] =
+        v;
+
+
+      document
+        .getElementById('choices')
+        .innerHTML = '';
+
+      document
+        .getElementById('loc')
+        .classList.add('hidden');
+
+      document
+        .getElementById('upload')
+        .classList.add('hidden');
+
+      document
+        .getElementById('composer')
+        .classList.remove('hidden');
+
+
+      idx++;
+
+      progress();
+
+
+      const next =
+        qs[idx];
+
+
+      if (next) {
+
+        if (
+          next[2] === 'location'
+        ) {
+
+          document
+            .getElementById('composer')
+            .classList.add('hidden');
+
+          setupLocation();
+
+        }
+
+
+        if (
+          next[2] === 'upload'
+        ) {
+
+          document
+            .getElementById('composer')
+            .classList.add('hidden');
+
+          document
+            .getElementById('upload')
+            .classList.remove('hidden');
+
+        }
+
+
+        if (
+          next[2] === 'salary'
+        ) {
+
+          document
+            .getElementById('composer')
+            .classList.add('hidden');
+
+          setupSalary();
+
+        }
+
+
+        bot(
+          next[1](),
+          next[2] || []
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SUMMARY
+       ========================================================= */
+
+    function summary() {
+
+      const a = [
+
+        ['Position', data.position],
+        ['Name', data.fullName],
+        ['Email', data.email],
+        ['Mobile', data.mobile],
+        ['Location', data.location],
+        ['CV', data.cv],
+        [
+          'LinkedIn',
+          data.linkedinUrl || data.linkedin
+        ],
+        ['Employment', data.employed],
+        ['Current title', data.jobTitle],
+        ['Company', data.company],
+        ['Experience', data.experience],
+        ['Expertise', data.expertise],
+        ['Skills', data.skills],
+        ['Tools', data.tools],
+        ['Certifications', data.certifications],
+        ['Industry', data.industry],
+        ['Achievements', data.achievements],
+        ['Notice period', data.notice],
+        ['Current salary', data.currentSalary],
+        ['Salary expectations', data.expectedSalary],
+        ['Hybrid', data.hybrid],
+        ['Why Cloud 11', data.why],
+        ['Strong fit', data.fit]
+
+      ];
+
+
+      return a
+        .map(
+          x =>
+            `<span style="display:block;margin:3px 0">
+              <b>${esc(x[0])}:</b>
+              ${esc(x[1] || '—')}
+            </span>`
+        )
+        .join('');
+
+    }
+
+
+    /* =========================================================
+       DATA CONVERSION
+       ========================================================= */
+
+    function experienceToNumber(value) {
+
+      if (!value) return null;
+
+      const s =
+        String(value).trim();
+
+
+      if (
+        /^\+?10/.test(s)
+      ) {
+
+        return 10;
+
+      }
+
+
+      const m =
+        s.match(/\d+/);
+
+
+      return m
+        ? Number(m[0])
+        : null;
+
+    }
+
+
+    function salaryToNumber(value) {
+
+      if (!value) return null;
+
+      const m =
+        String(value)
+          .replace(/,/g, '')
+          .match(/\d+(?:\.\d+)?/);
+
+
+      return m
+        ? Number(m[0])
+        : null;
+
+    }
+
+
+    /* =========================================================
+       SUBMIT TO ZOHO RECRUIT
+       ========================================================= */
+
+    async function submit() {
+
+      msg(
+        'user',
+        'Submit Application'
+      );
+
+
+      const nameParts =
+        (data.fullName || '')
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean);
+
+
+      const firstName =
+        nameParts.shift() ||
+        'Candidate';
+
+
+      const lastName =
+        nameParts.join(' ') ||
+        firstName;
+
+
+      const candidate = {
+
+        First_Name:
+          firstName,
+
+        Last_Name:
+          lastName,
+
+        Email:
+          data.email || '',
+
+        Mobile:
+          data.mobile || '',
+
+        City:
+          data.city || '',
+
+        Country:
+          data.country || '',
+
+        Current_Employer:
+          data.company || '',
+
+        Current_Job_Title:
+          data.jobTitle || '',
+
+        LinkedIn__s:
+          (data.linkedinUrl || '').trim(),
+
+        Experience_in_Years:
+          experienceToNumber(
+            data.experience
+          ),
+
+        Skill_Set:
+          data.skills || '',
+
+        Current_Salary:
+          salaryToNumber(
+            data.currentSalary
+          ),
+
+        Expected_Salary:
+          salaryToNumber(
+            data.expectedSalary
+          ),
+
+        Additional_Info: [
+
+          `Position Applied: ${data.position || ''}`,
+
+          `Employment Status: ${data.employed || ''}`,
+
+          `Expertise: ${data.expertise || ''}`,
+
+          `Tools / Technologies: ${data.tools || ''}`,
+
+          `Certifications: ${data.certifications || ''}`,
+
+          `Industry: ${data.industry || ''}`,
+
+          `Achievements / Projects: ${data.achievements || ''}`,
+
+          `Notice Period: ${data.notice || ''}`,
+
+          `Willing to Work Hybrid: ${data.hybrid || ''}`,
+
+          `Why Cloud 11: ${data.why || ''}`,
+
+          `Why Strong Fit: ${data.fit || ''}`,
+
+          `CV File: ${data.cv || ''}`
+
+        ].join('\n')
+
+      };
+
+
+      Object.keys(candidate)
+        .forEach(k => {
+
+          if (
+            candidate[k] === null ||
+            candidate[k] === ''
+          ) {
+
+            delete candidate[k];
+
+          }
+
+        });
+
+
+      try {
+
+        const response =
+          await fetch(
+            '/api/candidates',
+            {
+              method: 'POST',
+
+              headers: {
+                'Content-Type':
+                  'application/json'
+              },
+
+              body:
+                JSON.stringify(
+                  candidate
+                )
+            }
+          );
+
+
+        const result =
+          await response
+            .json()
+            .catch(
+              () => ({})
+            );
+
+
+        if (!response.ok) {
+
+          console.error(
+            'Zoho Recruit error:',
+            result
+          );
+
+          bot(`
+            ❌
+            <b>We couldn't submit your application.</b>
+            <br><br>
+            Please try again in a moment.
+          `);
+
+          toast(
+            'Application submission failed'
+          );
+
+          return;
+
+        }
+
+
+        const candidateId =
+          result.candidateId ||
+          result.id ||
+          'Submitted';
+
+
+        /*
+         * Upload CV to the created
+         * Zoho Recruit candidate.
+         */
+
+        if (data.cvFile) {
+
+          try {
+
+            const formData =
+              new FormData();
+
+            formData.append(
+              'cv',
+              data.cvFile,
+              data.cvFile.name
+            );
+
+
+            const uploadResponse =
+              await fetch(
+                '/api/candidates/' +
+                encodeURIComponent(
+                  candidateId
+                ) +
+                '/cv',
+                {
+                  method: 'POST',
+                  body: formData
+                }
+              );
+
+
+            const uploadResult =
+              await uploadResponse
+                .json()
+                .catch(
+                  () => ({})
+                );
+
+
+            if (
+              !uploadResponse.ok
+            ) {
+
+              console.warn(
+                'CV upload failed:',
+                uploadResult
+              );
+
+            }
+
+          } catch (
+            uploadError
+          ) {
+
+            console.warn(
+              'CV upload error:',
+              uploadError
+            );
+
+          }
+
+        }
+
+
+        bot(`
+          🎉
+          <b>Your application has been successfully submitted.</b>
+          <br><br>
+          Our recruitment team will review your profile
+          and contact you if your qualifications match
+          our requirements.
+          <br><br>
+          Thank you for considering
+          <b>Cloud 11</b> as your next career destination.
+          <br><br>
+          <b style="color:#2e986f">
+            Application Reference:
+            ${esc(candidateId)}
+          </b>
+        `);
+
+
+        document
+          .getElementById('composer')
+          .classList.add('hidden');
+
+        document
+          .getElementById('choices')
+          .innerHTML = '';
+
+        document
+          .getElementById('upload')
+          .classList.add('hidden');
+
+
+        toast(
+          'Application submitted successfully'
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          'Submission error:',
+          error
+        );
+
+
+        bot(`
+          ❌
+          <b>Something went wrong while submitting your application.</b>
+          <br><br>
+          Please try again.
+        `);
+
+
+        toast(
+          'Could not connect to recruitment system'
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       RESTART
+       ========================================================= */
+
+    function restart() {
+
+      selected = null;
+
+      idx = 0;
+
+      data = {};
+
+
+      document
+        .getElementById('msgs')
+        .innerHTML = '';
+
+      document
+        .getElementById('choices')
+        .innerHTML = '';
+
+      document
+        .getElementById('loc')
+        .classList.add('hidden');
+
+      document
+        .getElementById('upload')
+        .classList.add('hidden');
+
+      document
+        .getElementById('composer')
+        .classList.remove('hidden');
+
+      progress();
+
+
+      bot(
+        `
+          No problem! Let's start again.
+          <br><br>
+          Which position would you like
+          to apply for?
+        `,
+        jobs.map(j => j.t)
+      );
+
+    }
+
+
+    /* =========================================================
+       FILE UPLOAD
+       ========================================================= */
+
+    const cvInput =
+      document.getElementById('cv');
+
+    const cvDrop =
+      document.getElementById('cvDrop');
+
+    const cvCard =
+      document.getElementById('cvCard');
+
+    const cvName =
+      document.getElementById('cvName');
+
+    const cvSize =
+      document.getElementById('cvSize');
+
+    const cvBar =
+      document.getElementById('cvBar');
+
+    const cvStatus =
+      document.getElementById('cvStatus');
+
+    const cvRemove =
+      document.getElementById('cvRemove');
+
+
+    function formatFileSize(bytes) {
+
+      if (
+        !Number.isFinite(bytes)
+      ) {
+
+        return '';
+
+      }
+
+
+      if (
+        bytes < 1024 * 1024
+      ) {
+
+        return (
+          Math.round(
+            bytes / 1024
+          ) +
+          ' KB'
+        );
+
+      }
+
+
+      return (
+        (
+          bytes /
+          (1024 * 1024)
+        ).toFixed(1) +
+        ' MB'
+      );
+
+    }
+
+
+    function handleCV(file) {
+
+      if (!file) return;
+
+
+      const allowed = [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ];
+
+
+      const extension =
+        file.name
+          .split('.')
+          .pop()
+          .toLowerCase();
+
+
+      if (
+        !allowed.includes(file.type) &&
+        !['pdf', 'doc', 'docx']
+          .includes(extension)
+      ) {
+
+        toast(
+          'Please upload a PDF, DOC, or DOCX file.'
+        );
+
+        return;
+
+      }
+
+
+      if (
+        file.size >
+        10 * 1024 * 1024
+      ) {
+
+        toast(
+          'CV must be smaller than 10 MB.'
+        );
+
+        return;
+
+      }
+
+
+      data.cvFile =
+        file;
+
+      data.cv =
+        file.name;
+
+
+      cvDrop
+        .classList.add('hidden');
+
+      cvCard
+        .classList.remove('hidden');
+
+
+      cvName.textContent =
+        file.name;
+
+      cvSize.textContent =
+        formatFileSize(
+          file.size
+        );
+
+
+      cvBar.style.width =
+        '20%';
+
+      cvStatus.textContent =
+        'Preparing CV...';
+
+
+      setTimeout(() => {
+
+        cvBar.style.width =
+          '70%';
+
+        cvStatus.textContent =
+          'CV ready';
+
+      }, 250);
+
+
+      setTimeout(() => {
+
+        cvBar.style.width =
+          '100%';
+
+        cvStatus.textContent =
+          'CV ready to submit';
+
+      }, 600);
+
+
+      /*
+       * Continue the application
+       * after CV is selected.
+       */
+
+      setTimeout(() => {
+
+        document
+          .getElementById('upload')
+          .classList.add('hidden');
+
+        document
+          .getElementById('composer')
+          .classList.remove('hidden');
+
+        document
+          .getElementById('choices')
+          .innerHTML = '';
+
+        idx++;
+
+        progress();
+
+        const next =
+          qs[idx];
+
+        if (next) {
+
+          bot(
+            next[1](),
+            next[2] || []
+          );
+
+        }
+
+      }, 700);
+
+    }
+
+
+    cvInput.addEventListener(
+      'change',
+      e => {
+
+        const file =
+          e.target.files?.[0];
+
+        handleCV(file);
+
+      }
+    );
+
+
+    cvRemove.addEventListener(
+      'click',
+      () => {
+
+        delete data.cvFile;
+
+        delete data.cv;
+
+        cvInput.value = '';
+
+        cvCard
+          .classList.add('hidden');
+
+        cvDrop
+          .classList.remove('hidden');
+
+      }
+    );
+
+
+    /* =========================================================
+       DRAG & DROP CV
+       ========================================================= */
+
+    [
+      'dragenter',
+      'dragover'
+    ].forEach(eventName => {
+
+      cvDrop.addEventListener(
+        eventName,
+        e => {
+
+          e.preventDefault();
+
+          cvDrop
+            .classList.add('drag');
+
+        }
+      );
+
     });
-  }
-})();
-</script>
+
+
+    [
+      'dragleave',
+      'drop'
+    ].forEach(eventName => {
+
+      cvDrop.addEventListener(
+        eventName,
+        e => {
+
+          e.preventDefault();
+
+          cvDrop
+            .classList.remove('drag');
+
+        }
+      );
+
+    });
+
+
+    cvDrop.addEventListener(
+      'drop',
+      e => {
+
+        const file =
+          e.dataTransfer.files?.[0];
+
+        handleCV(file);
+
+      }
+    );
+
+
+    /* =========================================================
+       INPUT / SEND
+       ========================================================= */
+
+    const input =
+      document.getElementById('input');
+
+    const send =
+      document.getElementById('send');
+
+
+    function sendInput() {
+
+      const value =
+        input.value.trim();
+
+
+      if (!value) return;
+
+
+      input.value = '';
+
+      answer(value);
+
+    }
+
+
+    send.addEventListener(
+      'click',
+      sendInput
+    );
+
+
+    input.addEventListener(
+      'keydown',
+      e => {
+
+        if (
+          e.key === 'Enter'
+        ) {
+
+          e.preventDefault();
+
+          sendInput();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       OPEN / CLOSE
+       ========================================================= */
+
+    document
+      .getElementById('launcher')
+      .addEventListener(
+        'click',
+        () => {
+
+          openChat();
+
+        }
+      );
+
+
+    document
+      .getElementById('close')
+      .addEventListener(
+        'click',
+        () => {
+
+          document
+            .getElementById('chat')
+            .classList.add('hidden');
+
+          document
+            .getElementById('launch')
+            .classList.remove('hidden');
+
+        }
+      );
+
+
+    /* =========================================================
+       DRAG FLOATING CLOUDY BUTTON
+       ========================================================= */
+
+    (function () {
+
+      const launch =
+        document.getElementById(
+          'launch'
+        );
+
+      const circle =
+        document.getElementById(
+          'launcher'
+        );
+
+
+      let dragging =
+        false;
+
+      let moved =
+        false;
+
+      let startX = 0;
+      let startY = 0;
+
+      let startLeft = 0;
+      let startTop = 0;
+
+
+      function point(e) {
+
+        if (
+          e.touches &&
+          e.touches.length
+        ) {
+
+          return {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY
+          };
+
+        }
+
+
+        return {
+          x: e.clientX,
+          y: e.clientY
+        };
+
+      }
+
+
+      function down(e) {
+
+        const p =
+          point(e);
+
+        const r =
+          launch.getBoundingClientRect();
+
+
+        dragging = true;
+
+        moved = false;
+
+
+        startX = p.x;
+        startY = p.y;
+
+
+        startLeft =
+          r.left;
+
+        startTop =
+          r.top;
+
+
+        launch.style.left =
+          r.left + 'px';
+
+        launch.style.top =
+          r.top + 'px';
+
+        launch.style.right =
+          'auto';
+
+        launch.style.bottom =
+          'auto';
+
+
+        if (
+          e.type === 'touchstart'
+        ) {
+
+          e.preventDefault();
+
+        }
+
+      }
+
+
+      function move(e) {
+
+        if (!dragging) return;
+
+
+        const p =
+          point(e);
+
+
+        const dx =
+          p.x - startX;
+
+        const dy =
+          p.y - startY;
+
+
+        if (
+          Math.abs(dx) > 4 ||
+          Math.abs(dy) > 4
+        ) {
+
+          moved = true;
+
+        }
+
+
+        const maxLeft =
+          window.innerWidth -
+          launch.offsetWidth -
+          5;
+
+
+        const maxTop =
+          window.innerHeight -
+          launch.offsetHeight -
+          5;
+
+
+        const left =
+          Math.max(
+            5,
+            Math.min(
+              startLeft + dx,
+              maxLeft
+            )
+          );
+
+
+        const top =
+          Math.max(
+            5,
+            Math.min(
+              startTop + dy,
+              maxTop
+            )
+          );
+
+
+        launch.style.left =
+          left + 'px';
+
+        launch.style.top =
+          top + 'px';
+
+
+        if (
+          e.type === 'touchmove'
+        ) {
+
+          e.preventDefault();
+
+        }
+
+      }
+
+
+      function up() {
+
+        if (!dragging) return;
+
+        dragging = false;
+
+        setTimeout(
+          () => {
+            moved = false;
+          },
+          80
+        );
+
+      }
+
+
+      circle.addEventListener(
+        'mousedown',
+        down
+      );
+
+
+      document.addEventListener(
+        'mousemove',
+        move
+      );
+
+
+      document.addEventListener(
+        'mouseup',
+        up
+      );
+
+
+      circle.addEventListener(
+        'touchstart',
+        down,
+        {
+          passive: false
+        }
+      );
+
+
+      document.addEventListener(
+        'touchmove',
+        move,
+        {
+          passive: false
+        }
+      );
+
+
+      document.addEventListener(
+        'touchend',
+        up
+      );
+
+
+      circle.addEventListener(
+        'click',
+        e => {
+
+          if (moved) {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            return;
+
+          }
+
+          openChat();
+
+        }
+      );
+
+    })();
+
+
+    /* =========================================================
+       INITIALIZATION
+       ========================================================= */
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+
+        progress();
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
- 
+```
