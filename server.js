@@ -81,6 +81,8 @@ async function getZohoAccessToken() {
     );
   }
 
+  const tokenUrl = `${ZOHO_ACCOUNTS_URL}/oauth/v2/token`;
+
   const params = new URLSearchParams({
     refresh_token: ZOHO_REFRESH_TOKEN,
     client_id: ZOHO_CLIENT_ID,
@@ -88,16 +90,80 @@ async function getZohoAccessToken() {
     grant_type: "refresh_token"
   });
 
-  const response = await fetch(
-    `${ZOHO_ACCOUNTS_URL}/oauth/v2/token?${params.toString()}`
+  console.log(
+    "Requesting Zoho OAuth token from:",
+    tokenUrl
   );
 
-  const result = await response.json();
+  let response;
 
-  if (!response.ok || !result.access_token) {
-    console.error("Zoho token refresh failed:", result);
+  try {
+    response = await fetch(tokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json"
+      },
+      body: params.toString()
+    });
+  } catch (error) {
+    console.error(
+      "Zoho OAuth network error:",
+      error
+    );
 
-    throw new Error("Unable to refresh Zoho access token");
+    throw new Error(
+      `Unable to connect to Zoho OAuth endpoint: ${
+        error.message || "Network error"
+      }`
+    );
+  }
+
+  const responseText = await response.text();
+
+  console.log(
+    "Zoho OAuth HTTP status:",
+    response.status
+  );
+
+  // Do not log secrets or tokens.
+  // Only log the first 1000 characters of the response.
+  console.log(
+    "Zoho OAuth response:",
+    responseText.substring(0, 1000)
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      `Zoho OAuth failed with HTTP ${response.status}: ${responseText.substring(
+        0,
+        500
+      )}`
+    );
+  }
+
+  let result;
+
+  try {
+    result = JSON.parse(responseText);
+  } catch (error) {
+    throw new Error(
+      `Zoho OAuth returned a non-JSON response: ${responseText.substring(
+        0,
+        500
+      )}`
+    );
+  }
+
+  if (!result.access_token) {
+    console.error(
+      "Zoho OAuth response does not contain access_token:",
+      result
+    );
+
+    throw new Error(
+      "Zoho OAuth response did not contain an access token."
+    );
   }
 
   cachedAccessToken = result.access_token;
@@ -105,6 +171,10 @@ async function getZohoAccessToken() {
   accessTokenExpiresAt =
     Date.now() +
     Number(result.expires_in || 3600) * 1000;
+
+  console.log(
+    "Zoho OAuth access token successfully obtained."
+  );
 
   return cachedAccessToken;
 }
@@ -173,6 +243,19 @@ app.post("/api/candidates", async (req, res) => {
   try {
     const candidate = sanitizeCandidate(req.body);
 
+    console.log(
+      "Candidate submission received:",
+      JSON.stringify(
+        {
+          ...candidate,
+          Email: candidate.Email ? "[provided]" : undefined,
+          Mobile: candidate.Mobile ? "[provided]" : undefined
+        },
+        null,
+        2
+      )
+    );
+
     if (
       !candidate.First_Name ||
       !candidate.Last_Name ||
@@ -180,19 +263,31 @@ app.post("/api/candidates", async (req, res) => {
     ) {
       return res.status(400).json({
         success: false,
-        error: "First name, last name, and email are required."
+        error:
+          "First name, last name, and email are required."
       });
     }
 
-    const accessToken = await getZohoAccessToken();
+    const accessToken =
+      await getZohoAccessToken();
+
+    const candidatesUrl =
+      `${ZOHO_RECRUIT_API_URL}/Candidates`;
+
+    console.log(
+      "Creating Zoho Recruit candidate at:",
+      candidatesUrl
+    );
 
     const response = await fetch(
-      `${ZOHO_RECRUIT_API_URL}/Candidates`,
+      candidatesUrl,
       {
         method: "POST",
         headers: {
-          Authorization: `Zoho-oauthtoken ${accessToken}`,
-          "Content-Type": "application/json"
+          Authorization:
+            `Zoho-oauthtoken ${accessToken}`,
+          "Content-Type": "application/json",
+          Accept: "application/json"
         },
         body: JSON.stringify({
           data: [candidate]
@@ -200,21 +295,40 @@ app.post("/api/candidates", async (req, res) => {
       }
     );
 
-    const result = await response.json();
+    const responseText =
+      await response.text();
+
+    console.log(
+      "Zoho Recruit HTTP status:",
+      response.status
+    );
 
     console.log(
       "Zoho Recruit response:",
-      JSON.stringify(result, null, 2)
+      responseText.substring(0, 3000)
     );
+
+    let result;
+
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      result = {
+        raw: responseText
+      };
+    }
 
     if (!response.ok) {
       return res.status(response.status).json({
         success: false,
+        error:
+          "Zoho Recruit rejected the candidate.",
         zoho: result
       });
     }
 
-    const record = result?.data?.[0];
+    const record =
+      result?.data?.[0];
 
     const candidateId =
       record?.details?.id ||
@@ -231,6 +345,11 @@ app.post("/api/candidates", async (req, res) => {
       });
     }
 
+    console.log(
+      "Zoho candidate created successfully:",
+      candidateId
+    );
+
     return res.json({
       success: true,
       candidateId,
@@ -245,7 +364,8 @@ app.post("/api/candidates", async (req, res) => {
     return res.status(500).json({
       success: false,
       error:
-        error.message || "Internal server error"
+        error.message ||
+        "Internal server error"
     });
   }
 });
@@ -266,7 +386,8 @@ app.post(
         });
       }
 
-      const candidateId = req.params.candidateId;
+      const candidateId =
+        req.params.candidateId;
 
       const accessToken =
         await getZohoAccessToken();
@@ -298,13 +419,22 @@ app.post(
         "Resume"
       );
 
+      const uploadUrl =
+        "https://recruit.zoho.com/recruit/private/json/Candidates/uploadFile?version=2";
+
+      console.log(
+        "Uploading CV to Zoho Recruit:",
+        uploadUrl
+      );
+
       const response = await fetch(
-        "https://recruit.zoho.com/recruit/private/json/Candidates/uploadFile?version=2",
+        uploadUrl,
         {
           method: "POST",
           headers: {
             Authorization:
-              `Zoho-oauthtoken ${accessToken}`
+              `Zoho-oauthtoken ${accessToken}`,
+            Accept: "application/json"
           },
           body: form
         }
@@ -313,10 +443,21 @@ app.post(
       const resultText =
         await response.text();
 
+      console.log(
+        "Zoho CV upload HTTP status:",
+        response.status
+      );
+
+      console.log(
+        "Zoho CV upload response:",
+        resultText.substring(0, 2000)
+      );
+
       if (!response.ok) {
         return res.status(response.status).json({
           success: false,
-          error: "Zoho CV upload failed.",
+          error:
+            "Zoho CV upload failed.",
           zoho: resultText
         });
       }
